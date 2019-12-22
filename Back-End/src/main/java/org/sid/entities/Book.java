@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Book {
@@ -21,6 +26,8 @@ public class Book {
 	private String author;
 	private String title;
 	private String edition;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date date_publication;
 	private boolean isAvailable = true;
 	private String image;
@@ -28,13 +35,14 @@ public class Book {
 	 * it may cause a problem , so we will dealt with it later
 	 * private int quantite;
 	 */
-	
+	private int quantite;
 	@Column(length=512)
 	private String description;
 	
 	@ManyToOne @JoinColumn(name="Id_Category")
 	private Category category;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="book")
 	private Collection<Operation> operation;
 
@@ -42,15 +50,8 @@ public class Book {
 		super();
 	}
 
-	public Book(String author, String title, Category category) {
-		super();
-		this.author = author;
-		this.title = title;
-		this.category = category;
-	}
-	
 	public Book(String author, String title, String edition, Date date_publication, boolean isAvailable, String image,
-			String description, Category category, Collection<Operation> operation) {
+			int quantite, String description, Category category, Collection<Operation> operation) {
 		super();
 		this.author = author;
 		this.title = title;
@@ -58,6 +59,7 @@ public class Book {
 		this.date_publication = date_publication;
 		this.isAvailable = isAvailable;
 		this.image = image;
+		this.quantite = quantite;
 		this.description = description;
 		this.category = category;
 		this.operation = operation;
@@ -119,6 +121,14 @@ public class Book {
 		this.image = image;
 	}
 
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -142,6 +152,8 @@ public class Book {
 	public void setOperation(Collection<Operation> operation) {
 		this.operation = operation;
 	}
+
+	
 	
 	
 }
