@@ -80,3 +80,7 @@
               height:35px;
               margin:5px !important;
     }
+
+.clickable{
+  cursor: pointer;
+}

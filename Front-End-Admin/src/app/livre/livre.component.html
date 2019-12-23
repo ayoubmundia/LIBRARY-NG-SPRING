@@ -33,10 +33,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="td-table" *ngFor="let l of livres._embedded.livres">
-              <td class="text-center">{{l.titre}}</td>
-              <td class="text-center">{{l.auteur}}</td>
-              <td class="text-center">{{l.datePub}}</td>
+            <tr class="td-table" *ngFor="let l of livres.content">
+              <td class="text-center">{{l.title}}</td>
+              <td class="text-center">{{l.author}}</td>
+              <td class="text-center">{{l.date_publication}}</td>
               <td class="text-center">{{l.quantite}}</td>
               <td class="text-center">
                 <button class="btn btn-md btn-info css-btn">
@@ -51,17 +51,16 @@
               </td>
             </tr>
             </tbody>
+
           </table> <br><br>
-          <!--
-          <ul *ngIf="pages" class="nav nav-pills">
-            <li *ngFor="let p of pages; let i=index" class="nav-item" data-toggle="pill">
-              <a class="nav-link" data-toggle="pill" (click)="onPageLivre(i)">{{i}}</a>
-            </li>
-          </ul>
-           onPageLivre(){
-          this.currentPage=i;
-          this.onGetlivres();
-  }       -->
+          <div class="text-center pagination">
+            <ul *ngIf="pages" class="pagination">
+              <li [ngClass]="i==currentPage? 'active':''" *ngFor="let p of pages; let i=index" class="clickable">
+                <a (click)="onPageProduct(i)"> {{i}}</a>
+              </li>
+            </ul>
+          </div>
+
 
       </div>
     </div>

@@ -49,6 +49,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B1.setDescription("Description-1");
 		B1.setAvailable(true);
 		B1.setCategory(C1);
+		B1.setEdition("edition1");
+		B1.setImage("image1");
 		
 		Book B2 = new Book();
 		B2.setAuthor("Alaa");
@@ -56,6 +58,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B2.setDescription("Description-2");
 		B2.setAvailable(false);
 		B2.setCategory(C2);
+		B2.setEdition("edition2");
+		B2.setImage("image2");
 		
 		Book B3 = new Book();
 		B3.setAuthor("Akil");
@@ -63,6 +67,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B3.setDescription("Description-3");
 		B3.setAvailable(true);
 		B3.setCategory(C3);
+		B3.setEdition("edition3");
+		B3.setImage("image3");
 		
 		categoryRepository.save(C1);
 		categoryRepository.save(C2);

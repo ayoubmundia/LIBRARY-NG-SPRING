@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.sid.dao.BookRepository;
 import org.sid.entities.Book;
-import org.sid.metier.BiblioServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +31,6 @@ public class BookRestControllers {
 	}
 	
 	/*Consulter tout les livres en convertissant les résultats en format json*/
-	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method=RequestMethod.GET) 
 	public List<Book> listLivre(){
 		return bookRepository.findAll();
