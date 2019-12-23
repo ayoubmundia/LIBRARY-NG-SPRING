@@ -2,7 +2,10 @@ package org.sid.metier;
 
 import java.util.List;
 
+import org.sid.entities.Book;
 import org.sid.entities.Category;
+import org.sid.entities.Operation;
+import org.springframework.data.domain.Page;
 
 public interface BiblioServices {
 	List<Category> findAllCategories();

@@ -1,0 +1,151 @@
+<div class="app-main__outer  offset-sm-2 col-lg-10 app-main">
+  <div class="app-main__inner">
+    <div class="row">
+      <div class="card-body">
+        <div class="col-md-12">
+          <div id="accordion" class="accordion-wrapper mb-3">
+            <div class="card card-btn">
+
+              <a class="btn btn-primary btn-lg btn-ajouter-livre" data-toggle="modal" data-target="#livreModal">
+                Ajouter Un Livre
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 ">
+          <div class="input-group offset-sm-6 rechercher">
+            <input type="text" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <table class="mb-0 table table-hover table-striped col-sm-12" *ngIf="livres">
+            <thead>
+            <tr class="th-table-livre">
+              <th class="text-center">titre</th>
+              <th class="text-center">auteur</th>
+              <th class="text-center">Date</th>
+              <th class="text-center">Quantite Disponible</th>
+              <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="td-table" *ngFor="let l of livres._embedded.livres">
+              <td class="text-center">{{l.titre}}</td>
+              <td class="text-center">{{l.auteur}}</td>
+              <td class="text-center">{{l.datePub}}</td>
+              <td class="text-center">{{l.quantite}}</td>
+              <td class="text-center">
+                <button class="btn btn-md btn-info css-btn">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-md btn-success css-btn">
+                  <i class="fa fa-eye"></i>
+                </button>
+                <button class="btn btn-md btn-danger css-btn">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table> <br><br>
+          <!--
+          <ul *ngIf="pages" class="nav nav-pills">
+            <li *ngFor="let p of pages; let i=index" class="nav-item" data-toggle="pill">
+              <a class="nav-link" data-toggle="pill" (click)="onPageLivre(i)">{{i}}</a>
+            </li>
+          </ul>
+           onPageLivre(){
+          this.currentPage=i;
+          this.onGetlivres();
+  }       -->
+
+      </div>
+    </div>
+    <div class="app-wrapper-footer">
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade modal" id="livreModal" tabindex="-1" role="dialog" aria-labelledby="livreModalLabel" style="" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="livreModalLabel">La Création D'Un Noveau Livre </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="modal-x">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Tittre De Livre :</label>
+        <div class="col-sm-9"><input name="name" id="exampleName" placeholder="saisir le nom" type="text" class="form-control  input-livre"></div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Auteur :</label>
+        <div class="col-sm-9">
+          <input name="name" id="exampleName" placeholder="Saisir Le Nom De L'Auteur" type="text" class="form-control   input-livre">
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">File name  :</label>
+        <input type="file" name="imgfile" class="form-control   input-livre-img"> <br>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Date De publication  :</label>
+        <div class="col-sm-9">
+          <input name="name" id="" placeholder="Saisir La Date De PublicationDe Livre" type="date" class="form-control   input-livre">
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Edition  :</label>
+        <div class="col-sm-9">
+          <input name="name" id="" placeholder="Saisir L'Edition De Livre" type="text" class="form-control input-livre">
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Disponibilité :</label>
+        <div class="col-sm-9  input-livre ">
+          <select class="select-disponible">
+            <option value="volvo">Disponible</option>
+            <option value="saab">Occupé</option>
+          </select>
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Quantité :</label>
+        <div class="col-sm-9">
+          <input name="name" value="0" placeholder="Saisir La Quantité De Livre" type="number" class="form-control input-livre">
+        </div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Catégorie :</label>
+        <div class="col-sm-9"><input name="name" id="" placeholder="Saisir La Catégorie De Livre" type="text" class="form-control   input-livre"></div>
+      </div>
+      <div class="position-relative row form-group">
+        <label for="exampleEmail" class="col-sm-3 col-form-label">Résumer De Livre :</label>
+        <div class="col-sm-9">
+              <textarea name="" id="" placeholder="Saisir Le Résumer De Livre" type="" class="form-control input-livre"  rows="8" cols="24">
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      <button type="button" class="btn btn-primary">Sauvegarder</button>
+    </div>
+  </div>
+</div>
+</div>

@@ -3,9 +3,14 @@ package org.sid.metier;
 import java.util.List;
 import java.util.Optional;
 
+import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
+import org.sid.entities.Book;
 import org.sid.entities.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +19,8 @@ public class BiblioServicesImpl implements BiblioServices{
 	@Autowired
 	public CategoryRepository categoryRepository;
 	
+	@Autowired
+	public BookRepository bookRepository;
 
 	@Override
 	public List<Category> findAllCategories() {
@@ -42,5 +49,6 @@ public class BiblioServicesImpl implements BiblioServices{
 	public Category saveCategory(Category category) {
 		return categoryRepository.save(category);
 	}
+
 
 }
