@@ -6,12 +6,16 @@ import org.sid.dao.BookRepository;
 //import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
+import org.sid.dao.UserRepository;
+import org.sid.entities.Admin;
 import org.sid.entities.Book;
 //import org.sid.dao.OperationRepository;
 //import org.sid.dao.UserRepository;
 //import org.sid.entities.Book;
 import org.sid.entities.Category;
 import org.sid.entities.Demande;
+import org.sid.entities.Member;
+import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,8 +33,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	//@Autowired
-	//private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private DemandeRepository demandeRepository;
@@ -96,6 +100,27 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		D3.setMail("mail3");
 		D3.setDate(new Date("1998/11/11"));
 		
+		Member U1 = new Member();
+		U1.setFirst_name("google");
+		U1.setLast_name("lastgoogle");
+		U1.setMail("mail1");
+		U1.setPassword("1233");
+		U1.setBiblio("sssbiibil");
+		
+		Member U2 = new Member();
+		U2.setFirst_name("gossogle");
+		U2.setLast_name("lastgoogle");
+		U2.setMail("mail3");
+		U2.setPassword("233");
+		U2.setBiblio("biibil");
+		
+		Admin U3 = new Admin();
+		U3.setFirst_name("faile");
+		U3.setLast_name("lastgoogle");
+		U3.setMail("mail2");
+		U3.setPassword("123");
+		U3.setBiblio("224544");
+		
 		categoryRepository.save(C1);
 		categoryRepository.save(C2);
 		categoryRepository.save(C3);
@@ -107,6 +132,10 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		demandeRepository.save(D1);
 		demandeRepository.save(D2);
 		demandeRepository.save(D3);
+		
+		userRepository.save(U1);
+		userRepository.save(U2);
+		userRepository.save(U3);
 	}
 
 }

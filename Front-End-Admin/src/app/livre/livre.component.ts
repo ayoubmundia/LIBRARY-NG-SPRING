@@ -11,13 +11,13 @@ export class LivreComponent implements OnInit {
   public livres:any;
   public size:number=5;
   public currentPage:number=0;
-  public totalPages:any;
+  public totalPages:number;
   public pages:Array<number>;
   constructor(private catService:CatalogueService) { }
 
   ngOnInit() {
     this.catService.getLivres(this.currentPage,this.size)
-    .subscribe(data=>{
+    .subscribe((data:any)=>{
         this.totalPages=data.totalPages;
         this.pages=new Array<number>(this.totalPages);
         this.livres = data;
@@ -29,14 +29,7 @@ export class LivreComponent implements OnInit {
   }
 
   onGetlivres(){
-        this.catService.getLivres(this.currentPage,this.size)
-        .subscribe(data=>{
-            this.totalPages=data.totalPages;
-            this.pages=new Array<number>(this.totalPages);
-            this.livres = data;
-        },err=>{
-            console.log(err+"éee");
-        })
+
   }
 
   onPageProduct(i){

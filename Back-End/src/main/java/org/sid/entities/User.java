@@ -26,6 +26,8 @@ public class User {
 	private Date date ;
 	private String image;
 	
+	private String password;
+	
 	@Column(length = 512)
 	private String biblio;
 	
@@ -36,17 +38,20 @@ public class User {
 		super();
 	}
 
-	public User(String first_name, String last_name, String mail, Date date, String image, String biblio,
-			Collection<Operation> operations) {
+	public User(String first_name, String last_name, String mail, Date date, String image, String password,
+			String biblio, Collection<Operation> operations) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.mail = mail;
 		this.date = date;
 		this.image = image;
+		this.password = password;
 		this.biblio = biblio;
 		this.operations = operations;
 	}
+
+
 
 	public long getId() {
 		return id;
@@ -110,6 +115,14 @@ public class User {
 
 	public void setOperations(Collection<Operation> operations) {
 		this.operations = operations;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

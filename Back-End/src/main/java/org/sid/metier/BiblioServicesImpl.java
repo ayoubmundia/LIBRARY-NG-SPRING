@@ -6,8 +6,10 @@ import java.util.Optional;
 import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
+import org.sid.dao.UserRepository;
 import org.sid.entities.Category;
 import org.sid.entities.Demande;
+import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,9 @@ public class BiblioServicesImpl implements BiblioServices{
 	
 	@Autowired
 	public DemandeRepository demandeRepository;
+	
+	@Autowired
+	public UserRepository userRepository;
 
 	@Override
 	public List<Category> findAllCategories() {
@@ -59,6 +64,11 @@ public class BiblioServicesImpl implements BiblioServices{
 	@Override
 	public List<Demande> findAllDemandes() {
 		return demandeRepository.findAll();
+	}
+
+	@Override
+	public User findUserByMailAndPassword(String mail, String password) {
+		return userRepository.listloginUser(mail, password);
 	}
 
 
