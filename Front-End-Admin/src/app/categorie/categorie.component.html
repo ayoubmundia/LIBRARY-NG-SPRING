@@ -32,59 +32,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="td-table">
+            <tr class="td-table" *ngFor="let l of categories.content">
               <td class="text-center">1</td>
-              <td class="text-center">Culture</td>
-              <td class="text-center">oui</td>
-              <td class="text-center">
-                <button class="btn btn-md btn-info css-btn">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-md btn-success css-btn">
-                  <i class="fa fa-eye"></i>
-                </button>
-                <button class="btn btn-md btn-danger css-btn">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="td-table">
-              <td class="text-center">2</td>
-              <td class="text-center">Historique</td>
-              <td class="text-center">Non</td>
-              <td class="text-center">
-                <button class="btn btn-md btn-info css-btn">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-md btn-success css-btn">
-                  <i class="fa fa-eye"></i>
-                </button>
-                <button class="btn btn-md btn-danger css-btn">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-
-            <tr class="td-table">
-              <td class="text-center">3</td>
-              <td class="text-center">Informatique</td>
-              <td class="text-center">oui</td>
-              <td class="text-center">
-                <button class="btn btn-md btn-info css-btn">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-md btn-success css-btn">
-                  <i class="fa fa-eye"></i>
-                </button>
-                <button class="btn btn-md btn-danger css-btn">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="td-table">
-              <td class="text-center">4</td>
-              <td class="text-center">Litérature</td>
-              <td class="text-center">oui</td>
+              <td class="text-center">{{l.title}}</td>
+              <td class="text-center" *ngIf="l.active == 1">oui</td>
+              <td class="text-center" *ngIf="l.active == 0">non</td>
               <td class="text-center">
                 <button class="btn btn-md btn-info css-btn">
                   <i class="fas fa-edit"></i>
@@ -100,12 +52,10 @@
             </tbody>
           </table> <br><br>
           <div class="text-center pagination">
-            <ul class="pagination">
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
+            <ul   *ngIf="pages" class="pagination">
+              <li [ngClass]="i==currentPage? 'active':''" *ngFor="let p of pages; let i=index"  class="clickable">
+                <a (click)="onPageProduct(i)"> {{i}}</a>
+              </li>
             </ul>
           </div>
         </div>

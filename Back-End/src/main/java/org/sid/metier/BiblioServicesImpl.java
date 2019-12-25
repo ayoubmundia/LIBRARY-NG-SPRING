@@ -11,6 +11,8 @@ import org.sid.entities.Category;
 import org.sid.entities.Demande;
 import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -69,6 +71,11 @@ public class BiblioServicesImpl implements BiblioServices{
 	@Override
 	public User findUserByMailAndPassword(String mail, String password) {
 		return userRepository.listloginUser(mail, password);
+	}
+
+	@Override
+	public Page getCategories(Pageable pageable) {
+		return categoryRepository.findAll(pageable);
 	}
 
 

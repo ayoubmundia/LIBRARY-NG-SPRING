@@ -23,6 +23,7 @@ public class BookRestControllers {
 	/*Injection de dépendances*/
 	@Autowired 
 	private BookRepository bookRepository;
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/listPageable", method = RequestMethod.GET)
 	Page<Book> booksPageable(Pageable pageable) {

@@ -4,6 +4,8 @@ import java.util.List;
 import org.sid.entities.Category;
 import org.sid.entities.Demande;
 import org.sid.entities.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface BiblioServices {
 	List<Category> findAllCategories();
@@ -14,4 +16,5 @@ public interface BiblioServices {
 	Category saveCategory(Category category);
 	Demande saveDemande(Demande demande);
 	User findUserByMailAndPassword(String mail, String password);
+	Page getCategories(Pageable pageable );
 }

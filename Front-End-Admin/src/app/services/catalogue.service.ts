@@ -11,4 +11,7 @@ export class CatalogueService {
   public getLivres(page:number, size:number){
     return this.httpClient.get(this.host+"/api/livres/listPageable?page="+page+"&size="+size);
   }
+  public getCategories(page:number, size:number){
+    return this.httpClient.get(this.host+"/api/categories/listPageable?page="+page+"&size="+size);
+  }
 }

@@ -54,8 +54,8 @@
 
           </table> <br><br>
           <div class="text-center pagination">
-            <ul *ngIf="pages" class="pagination">
-              <li [ngClass]="i==currentPage? 'active':''" *ngFor="let p of pages; let i=index" class="clickable">
+            <ul   *ngIf="pages" class="pagination">
+              <li [ngClass]="i==currentPage? 'active':''" *ngFor="let p of pages; let i=index"  class="clickable">
                 <a (click)="onPageProduct(i)"> {{i}}</a>
               </li>
             </ul>

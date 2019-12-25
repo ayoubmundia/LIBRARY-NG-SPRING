@@ -47,12 +47,15 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Category C1 = new Category();
 		C1.setTitle("1984");
+		C1.setActive(true);
 		
 		Category C2 = new Category();
 		C2.setTitle("Revange");
+		C2.setActive(false);
 		
 		Category C3 = new Category();
 		C3.setTitle("Sapiens");
+		C3.setActive(true);
 		
 		Book B1 = new Book();
 		B1.setAuthor("Ahmed");
@@ -62,6 +65,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B1.setCategory(C1);
 		B1.setEdition("edition1");
 		B1.setImage("image1");
+		B1.setQuantite(100);
+		B1.setDate_publication(new Date("2012/11/21"));
 		
 		Book B2 = new Book();
 		B2.setAuthor("Alaa");
@@ -71,6 +76,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B2.setCategory(C2);
 		B2.setEdition("edition2");
 		B2.setImage("image2");
+		B2.setQuantite(10);
+		B2.setDate_publication(new Date("2011/11/11"));
 		
 		Book B3 = new Book();
 		B3.setAuthor("Akil");
@@ -80,6 +87,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B3.setCategory(C3);
 		B3.setEdition("edition3");
 		B3.setImage("image3");
+		B3.setQuantite(1000);
+		B3.setDate_publication(new Date("2000/10/10"));
 		
 		Demande D1 = new Demande();
 		D1.setFirst_name("use1");

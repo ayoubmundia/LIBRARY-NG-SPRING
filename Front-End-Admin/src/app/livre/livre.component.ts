@@ -17,6 +17,19 @@ export class LivreComponent implements OnInit {
 
   ngOnInit() {
     this.catService.getLivres(this.currentPage,this.size)
+      .subscribe((data:any)=>{
+          this.totalPages=data.totalPages;
+          this.pages=new Array<number>(this.totalPages);
+          this.livres = data;
+      }
+      ,
+      err=>{
+        console.log(err);
+      })
+    }
+
+  onGetlivres(){
+    this.catService.getLivres(this.currentPage,this.size)
     .subscribe((data:any)=>{
         this.totalPages=data.totalPages;
         this.pages=new Array<number>(this.totalPages);
@@ -26,10 +39,6 @@ export class LivreComponent implements OnInit {
     err=>{
       console.log(err);
     })
-  }
-
-  onGetlivres(){
-
   }
 
   onPageProduct(i){

@@ -17,20 +17,17 @@ public class Category {
 	private Long id_category;
 	
 	private String title;
+	private boolean active;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="category")
 	private Collection<Book> books;
 
-	public Category(String title) {
-		super();
-		this.title = title;
-	}
-	
-	public Category(String title, Collection<Book> books) {
+	public Category(String title, boolean active ,Collection<Book> books) {
 		super();
 		this.title = title;
 		this.books = books;
+		this.active = true;
 	}
 
 	public Category() {
@@ -59,6 +56,14 @@ public class Category {
 
 	public void setBooks(Collection<Book> books) {
 		this.books = books;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	
