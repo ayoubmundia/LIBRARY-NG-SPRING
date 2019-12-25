@@ -86,12 +86,14 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		D1.setLast_name("last1");
 		D1.setMail("mail1");
 		D1.setDate(new Date("1998/11/11"));
+		D1.setPassword("password2");
 		
 		Demande D2 = new Demande();
 		D2.setFirst_name("use2");
 		D2.setLast_name("last2");
 		D2.setMail("mail2");
 		D2.setDate(new Date("1998/11/11"));
+		D2.setPassword("password");
 		
 		
 		Demande D3 = new Demande();
@@ -99,6 +101,7 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		D3.setLast_name("last3");
 		D3.setMail("mail3");
 		D3.setDate(new Date("1998/11/11"));
+		D3.setPassword("passworsssd");
 		
 		Member U1 = new Member();
 		U1.setFirst_name("google");

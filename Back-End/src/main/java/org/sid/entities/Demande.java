@@ -19,6 +19,7 @@ public class Demande {
 	private String first_name;
 	private String last_name;
 	private String mail;
+	private String password;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
@@ -28,12 +29,21 @@ public class Demande {
 		super();
 	}
 
-	public Demande(String first_name, String last_name, String mail, Date date) {
+	public Demande(String first_name, String last_name, String mail, Date date,String password) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.mail = mail;
 		this.date = date;
+		this.password = password;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Long getId_demande() {
