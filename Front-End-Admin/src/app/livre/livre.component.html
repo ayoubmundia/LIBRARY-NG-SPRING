@@ -28,7 +28,8 @@
               <th class="text-center">titre</th>
               <th class="text-center">auteur</th>
               <th class="text-center">Date</th>
-              <th class="text-center">Quantite Disponible</th>
+              <th class="text-center">Quantite</th>
+              <th class="text-center">Disponible</th>
               <th class="text-center">Action</th>
             </tr>
             </thead>
@@ -38,6 +39,8 @@
               <td class="text-center">{{l.author}}</td>
               <td class="text-center">{{l.date_publication}}</td>
               <td class="text-center">{{l.quantite}}</td>
+              <td class="text-center" *ngIf="l.available == 1">oui</td>
+              <td class="text-center" *ngIf="l.available == 0">non</td>
               <td class="text-center">
                 <button class="btn btn-md btn-info css-btn">
                   <i class="fas fa-edit"></i>
