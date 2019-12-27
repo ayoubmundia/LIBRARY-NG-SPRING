@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 public interface BiblioServices {
 	List<Category> findAllCategories();
 	List<Demande> findAllDemandes();
+	List<User> findAllUsers();
 	Category findCategoryById(Long id);
 	void deleteCategoryById(Long id);
 	Category updateCategoryById(Long id,Category category);

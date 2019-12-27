@@ -41,9 +41,9 @@
                 <button class="btn btn-md btn-info css-btn">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-md btn-success css-btn">
+                <!--<button class="btn btn-md btn-success css-btn">
                   <i class="fa fa-eye"></i>
-                </button>
+                </button>-->
                 <button class="btn btn-md btn-danger css-btn">
                   <i class="fa fa-trash"></i>
                 </button>
@@ -54,7 +54,7 @@
           <div class="text-center pagination">
             <ul   *ngIf="pages" class="pagination">
               <li [ngClass]="i==currentPage? 'active':''" *ngFor="let p of pages; let i=index"  class="clickable">
-                <a (click)="onPageProduct(i)"> {{i}}</a>
+                <a (click)="onPageProduct(i)"> {{i+1}}</a>
               </li>
             </ul>
           </div>

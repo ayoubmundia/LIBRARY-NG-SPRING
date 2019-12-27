@@ -78,5 +78,10 @@ public class BiblioServicesImpl implements BiblioServices{
 		return categoryRepository.findAll(pageable);
 	}
 
+	@Override
+	public List<User> findAllUsers() {
+		return userRepository.findAll();
+	}
+
 
 }
