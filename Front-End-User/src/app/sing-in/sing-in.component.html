@@ -31,6 +31,7 @@
                                                         </label>
                                                         <input type="password" formControlName="password" class="input-text">
                                                     </p>
+                                                    <span class="second-letter" *ngIf="emailValid()"> Email or Password incorrect!</span>
                                                     <div class="clear"></div>
                                                     <!-- <div class="password-form-row"> -->
                                                         <!-- <p class="form-row input-checkbox">

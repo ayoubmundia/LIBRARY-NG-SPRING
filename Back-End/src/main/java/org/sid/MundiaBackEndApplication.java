@@ -115,21 +115,21 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		Member U1 = new Member();
 		U1.setFirst_name("google");
 		U1.setLast_name("lastgoogle");
-		U1.setMail("mail1");
+		U1.setMail("mail1@m");
 		U1.setPassword("1233");
 		U1.setBiblio("sssbiibil");
 		
 		Member U2 = new Member();
 		U2.setFirst_name("gossogle");
 		U2.setLast_name("lastgoogle");
-		U2.setMail("mail3");
+		U2.setMail("mail3@m");
 		U2.setPassword("233");
 		U2.setBiblio("biibil");
 		
 		Admin U3 = new Admin();
 		U3.setFirst_name("faile");
 		U3.setLast_name("lastgoogle");
-		U3.setMail("mail2");
+		U3.setMail("mail2@m");
 		U3.setPassword("123");
 		U3.setBiblio("224544");
 		

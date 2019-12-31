@@ -2,6 +2,8 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { SendDemandeService } from '../auth/send-demande.service';
 import { Router } from '@angular/router';
+import { UserModule } from '../user/user.module';
+
 
 @Component({
   selector: 'app-sing-in',
@@ -34,9 +36,18 @@ export class SingInComponent implements OnInit {
     
     // console.log(this.signInForm.value);
     this.sendDemandeService.SingIn(email,password);
+    this.errorMessage = localStorage.getItem("email_or_password");
+
 
   }
-
+  emailValid(){
+    if (this.errorMessage == "true"){
+      return true;
+    }
+    else{
+      return false;
+    } 
+  }
 
 
 
