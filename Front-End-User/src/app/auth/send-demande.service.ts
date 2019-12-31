@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 //   password: string;
 // }
 export class SendDemandeService {
-  public host: string = "http://localhost:8080";
+  public host: string = "http://localhost:8099";
   constructor(
     private httpClient : HttpClient,
     private router: Router,
@@ -37,39 +37,25 @@ export class SendDemandeService {
       parametres = parametres.append('mail', email);
       parametres = parametres.append('password', passwd);
     // var user_data ={ "mail": email,"password": passwd};
-    this.httpClient.get(this.host+"/api/users", { params: parametres }).subscribe(
+    this.httpClient.get(this.host+"/api/users/singin", { params: parametres }).subscribe(
       data  =>{
-        if(data== ""){
-          localStorage.setItem("is_auth", "false");
-          localStorage.setItem("email_or_password","true");
-          console.log("1")
-
+        if(data !== null ){
+        localStorage.setItem("is_auth", "true");
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        localStorage.setItem("email_or_password","false");
+        this.router.navigate(['/profil']);
         }
-        
         else{
-          localStorage.setItem("is_auth", "true");
-          this.router.navigate(['/profil']);
-          localStorage.setItem("email_or_password","false");
-
-          console.log("2")
-
+          localStorage.setItem("email_or_password","true");
+          localStorage.setItem("is_auth", "false");
         }
-        // console.log("respons 2:",data);
-
-        // data.find(e => e.name === 'apples')
+      },
+      error =>{
+        localStorage.setItem("is_auth", "false");
+        localStorage.setItem("email_or_password","true");
       }
     );
-    
-    // .then(
-    //   ()=>{
-    //     // localStorage.setItem("email_exist", "false");
-    //     // this.router.navigate(['/booklist'])
-    //     }
-    // )
-    // .catch(this.handleError);
     }
-    
-
     private handleError(error: any): Promise<any> {
       localStorage.setItem("email_exist", "true");
       console.error('An error occurred', error);

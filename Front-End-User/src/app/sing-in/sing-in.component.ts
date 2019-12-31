@@ -37,8 +37,6 @@ export class SingInComponent implements OnInit {
     // console.log(this.signInForm.value);
     this.sendDemandeService.SingIn(email,password);
     this.errorMessage = localStorage.getItem("email_or_password");
-
-
   }
   emailValid(){
     if (this.errorMessage == "true"){

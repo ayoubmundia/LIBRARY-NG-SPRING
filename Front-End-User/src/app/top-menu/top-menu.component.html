@@ -19,16 +19,33 @@
                         <div class="header-topbar hidden-sm hidden-xs">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="topbar-info">
+                                    <!-- <div class="topbar-info">
                                         <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
                                         <span>/</span>
                                         <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="topbar-links">
+                                <div class="col-md-4">
+                                    <div class="topbar-links" *ngIf="!isAuth()">
                                         <a routerLink="singin" routerLinkActive="active"><i class="fa fa-lock"></i>Login / Register</a>
                                     </div>
+                                    <div class="topbar-links" *ngIf="isAuth()">
+                                       <a>
+                                        <i class="fa fa-user"></i>
+                                        {{first_name}} - {{last_name}}
+                                       </a> 
+                                    </div>
+                                    <!-- <div class="topbar-links" (click)=logout()>
+                                         <i class="fa fa-user"></i>
+                                         Log-Out
+                                     </div> -->
+                                </div>
+                                <div class="col-md-2" *ngIf="isAuth()">
+                                    <a href="#">
+                                        <div class="topbar-links" (click)=logout()>
+                                            Log-Out
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +58,7 @@
                                     <a routerLinkActive="active"routerLink="booklist">Books List</a>
                                 </li>
                                 <li >
-                                    <a routerLinkActive="active" routerLink="profil">Profil</a>
+                                    <a routerLinkActive="active" routerLink="profil" *ngIf="isAuth()">Profil</a>
                                 </li>
                             </ul>
                         </div>
