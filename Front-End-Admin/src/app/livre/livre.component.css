@@ -76,11 +76,18 @@
   .css-btn
     {
               display: inline;
-              width:50px !important;
-              height:35px;
+              /* width:50px !important;
+              height:35px; */
               margin:5px !important;
     }
 
 .clickable{
   cursor: pointer;
+}
+
+.activeUp{
+	display: block;
+}
+.unactiveUp{
+	display: hidden;
 }

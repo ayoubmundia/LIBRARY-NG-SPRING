@@ -51,6 +51,7 @@ public class BookRestControllers {
 	}*/
 	
 	/* ajouter livre */
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method=RequestMethod.POST)
 	public Book save(@RequestBody Book book){ 
 		return bookRepository.save(book);

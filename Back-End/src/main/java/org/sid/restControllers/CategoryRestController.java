@@ -46,6 +46,7 @@ public class CategoryRestController {
 		return biblioServices.getBooksByCat(id);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/{id}")
 	public Category getCategoryById(@PathVariable Long id) {
 		return biblioServices.findCategoryById(id);

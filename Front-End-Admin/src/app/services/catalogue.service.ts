@@ -11,7 +11,20 @@ export class CatalogueService {
   public getLivres(page:number, size:number){
     return this.httpClient.get(this.host+"/api/livres/listPageable?page="+page+"&size="+size);
   }
+  public getLivreById(id:number){
+    return this.httpClient.get(this.host+"/api/livres/"+id);
+  }
   public getCategories(page:number, size:number){
     return this.httpClient.get(this.host+"/api/categories/listPageable?page="+page+"&size="+size);
   }
+  public getCategoryById(id:number){
+    return this.httpClient.get(this.host+"/api/categories/"+id);
+  }
+  public getAllCategories(){
+    return this.httpClient.get(this.host+"/api/categories/");
+  }
+  public updateBook(value:any){
+    return this.httpClient.post(this.host+"/api/livres/", value);
+  }
+  
 }
