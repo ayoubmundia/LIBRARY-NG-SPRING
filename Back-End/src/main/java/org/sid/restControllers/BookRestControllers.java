@@ -38,7 +38,7 @@ public class BookRestControllers {
 	}
 	
 	/* rechercher un livre*/
-	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public Book getLivre(@PathVariable("id") Long id ){
 		return bookRepository.findById(id).get();
@@ -57,6 +57,7 @@ public class BookRestControllers {
 	}
 	
 	/* modifier livre */
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public Book update(@RequestBody Book book, @PathVariable Long id){ /* @PathVariable pour recuperer id */
 		book.setId_book(id);
