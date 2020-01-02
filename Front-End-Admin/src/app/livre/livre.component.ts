@@ -88,6 +88,7 @@ export class LivreComponent implements OnInit {
       this.livreUpdated.available = 1;
     }
   }
+  
   categoryChange(filterVal: any) {
     this.catService.getCategoryById(filterVal)
     .subscribe((data:any) =>{

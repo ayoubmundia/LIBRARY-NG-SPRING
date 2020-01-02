@@ -26,5 +26,8 @@ export class CatalogueService {
   public updateBook(value:any){
     return this.httpClient.post(this.host+"/api/livres/", value);
   }
+  public updateCategory(value:any){
+    return this.httpClient.post(this.host+"/api/categories/", value);
+  }
   
 }

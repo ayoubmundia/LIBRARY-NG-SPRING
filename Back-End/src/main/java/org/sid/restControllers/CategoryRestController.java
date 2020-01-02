@@ -57,12 +57,13 @@ public class CategoryRestController {
 		biblioServices.deleteCategoryById(id);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Category saveCategory(@RequestBody Category category) {
 		return biblioServices.saveCategory(category);
 	}
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/{id}")
 	public Category updateCategoryById(@PathVariable Long id,@RequestBody Category cst){
 		cst.setId_category(id);
