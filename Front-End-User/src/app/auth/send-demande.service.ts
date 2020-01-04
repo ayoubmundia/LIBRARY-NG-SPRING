@@ -22,7 +22,7 @@ export class SendDemandeService {
     var postData ={ "date": date,"first_name" : f_Name , "last_name" : l_Name,"mail": email,"password": passwd};  
     
     console.log(JSON.stringify(postData));
-    this.httpClient.post(this.host+"/api/demande",postData).toPromise()
+    this.httpClient.post(this.host+"/api/demandes",postData).toPromise()
     .then(
       ()=>{
         localStorage.setItem("email_exist", "false");
