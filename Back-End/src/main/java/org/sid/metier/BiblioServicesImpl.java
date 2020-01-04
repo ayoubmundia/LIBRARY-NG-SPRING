@@ -3,10 +3,13 @@ package org.sid.metier;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
 import org.sid.dao.UserRepository;
+import org.sid.entities.Book;
 import org.sid.entities.Category;
 import org.sid.entities.Demande;
 import org.sid.entities.User;
@@ -16,6 +19,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class BiblioServicesImpl implements BiblioServices{
 
 	@Autowired
@@ -81,6 +85,11 @@ public class BiblioServicesImpl implements BiblioServices{
 	@Override
 	public List<User> findAllUsers() {
 		return userRepository.findAll();
+	}
+
+	@Override
+	public List<Book> getBooksByCat(Long id) {
+		return (List<Book>) categoryRepository.findById(id).get().getBooks();
 	}
 
 

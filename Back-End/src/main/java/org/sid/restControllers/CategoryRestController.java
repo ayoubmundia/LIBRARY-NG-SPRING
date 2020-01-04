@@ -2,6 +2,7 @@ package org.sid.restControllers;
 
 import java.util.List;
 
+import org.sid.entities.Book;
 import org.sid.entities.Category;
 import org.sid.metier.BiblioServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,19 @@ public class CategoryRestController {
 		this.biblioServices = bs;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 	List<Category> getAllCategories(){
 		return biblioServices.findAllCategories();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/{id}/livres")
+	List<Book> getBookByCategory(@PathVariable Long id){
+		return biblioServices.getBooksByCat(id);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/{id}")
 	public Category getCategoryById(@PathVariable Long id) {
 		return biblioServices.findCategoryById(id);
@@ -49,12 +58,13 @@ public class CategoryRestController {
 		biblioServices.deleteCategoryById(id);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Category saveCategory(@RequestBody Category category) {
 		return biblioServices.saveCategory(category);
 	}
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/{id}")
 	public Category updateCategoryById(@PathVariable Long id,@RequestBody Category cst){
 		cst.setId_category(id);
@@ -67,4 +77,5 @@ public class CategoryRestController {
 		return biblioServices.getCategories(pageable);
 
 	}
+	
 }

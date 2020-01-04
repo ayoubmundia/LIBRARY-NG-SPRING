@@ -26,9 +26,11 @@ public class Book {
 	private String author;
 	private String title;
 	private String edition;
+	
 	@JsonFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date date_publication;
+	
 	private boolean isAvailable = true;
 	private String image;
 	/*
@@ -36,6 +38,7 @@ public class Book {
 	 * private int quantite;
 	 */
 	private int quantite;
+	
 	@Column(length=512)
 	private String description;
 	

@@ -8,7 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Category {
@@ -19,7 +20,7 @@ public class Category {
 	private String title;
 	private boolean active;
 	
-	@JsonIgnore
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@OneToMany(mappedBy="category")
 	private Collection<Book> books;
 

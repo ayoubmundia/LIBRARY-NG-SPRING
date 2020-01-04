@@ -3,19 +3,14 @@ package org.sid;
 import java.util.Date;
 
 import org.sid.dao.BookRepository;
-//import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
 import org.sid.dao.UserRepository;
 import org.sid.entities.Admin;
 import org.sid.entities.Book;
-//import org.sid.dao.OperationRepository;
-//import org.sid.dao.UserRepository;
-//import org.sid.entities.Book;
 import org.sid.entities.Category;
 import org.sid.entities.Demande;
 import org.sid.entities.Member;
-import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -93,14 +88,14 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		Demande D1 = new Demande();
 		D1.setFirst_name("use1");
 		D1.setLast_name("last1");
-		D1.setMail("mail1");
+		D1.setMail("maild1@m.com");
 		D1.setDate(new Date("1998/11/11"));
 		D1.setPassword("password2");
 		
 		Demande D2 = new Demande();
 		D2.setFirst_name("use2");
 		D2.setLast_name("last2");
-		D2.setMail("mail2");
+		D2.setMail("maild2@m.com");
 		D2.setDate(new Date("1998/11/11"));
 		D2.setPassword("password");
 		
@@ -108,28 +103,28 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		Demande D3 = new Demande();
 		D3.setFirst_name("use3");
 		D3.setLast_name("last3");
-		D3.setMail("mail3");
+		D3.setMail("maild3@m.com");
 		D3.setDate(new Date("1998/11/11"));
 		D3.setPassword("passworsssd");
 		
 		Member U1 = new Member();
 		U1.setFirst_name("google");
 		U1.setLast_name("lastgoogle");
-		U1.setMail("mail1@m");
+		U1.setMail("mailu1@m.com");
 		U1.setPassword("1233");
 		U1.setBiblio("sssbiibil");
 		
 		Member U2 = new Member();
 		U2.setFirst_name("gossogle");
 		U2.setLast_name("lastgoogle");
-		U2.setMail("mail3@m");
+		U2.setMail("mailu2@m.com");
 		U2.setPassword("233");
 		U2.setBiblio("biibil");
 		
 		Admin U3 = new Admin();
 		U3.setFirst_name("faile");
 		U3.setLast_name("lastgoogle");
-		U3.setMail("mail2@m");
+		U3.setMail("mailu3@m.com");
 		U3.setPassword("123");
 		U3.setBiblio("224544");
 		

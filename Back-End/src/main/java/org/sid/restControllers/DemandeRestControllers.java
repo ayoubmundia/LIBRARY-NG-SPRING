@@ -27,11 +27,13 @@ public class DemandeRestControllers {
 		this.biblioServices = bs;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping()
 	List<Demande> getAllDemandes(){
 		return biblioServices.findAllDemandes();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping()
 	@ResponseStatus(HttpStatus.CREATED)
 	public Demande saveDemande(@RequestBody Demande demande) {

@@ -1,0 +1,39 @@
+<div class="app-main__outer  offset-sm-2 col-lg-10 app-main" style="margin-top:-780px!important; margin-left: 235px;">
+  <div class="app-main__inner">
+    <div class="row">
+      <div class="card-body">
+        <div class="col-md-12">
+          <div id="accordion" class="accordion-wrapper mb-3">
+            <div class="card card-btn">
+
+              <a class="btn btn-primary btn-lg btn-emprunter-livre" [routerLink]="['/listEmprunts']">
+                List Des Emprunts
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="main-card mb-3 card">
+            <div class="card-body"><h5 class="card-title">Prolonger Emprunt</h5>
+              <form class="">
+                <div class="position-relative form-group"><label for="" class="">ID Utilisateur</label>
+                  <input name="date_debut" id="" placeholder="ID Utilisateur" type="text" class="form-control">
+                </div>
+                <div class="position-relative form-group"><label for="" class="">Code Livre</label>
+                  <input name="date_debut" id="" placeholder="Code Livre" type="text" class="form-control">
+                </div>
+                <div class="position-relative form-group"><label for="" class="">Date Début Prolongement</label>
+                  <input name="date_debut" id="" placeholder="Date début" type="Date" class="form-control">
+                </div>
+                <div class="position-relative form-group"><label for="" class="">Date Fin Prolongement</label>
+                  <input name="date_fin" id="exampleEmail" placeholder="Date fin" type="Date" class="form-control">
+                </div>
+                <button class="mt-1 btn btn-primary">Prolonger</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

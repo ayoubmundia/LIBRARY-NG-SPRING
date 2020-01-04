@@ -1,0 +1,91 @@
+<div class="app-main__outer  offset-sm-2 col-lg-10 app-main">
+  <div class="app-main__inner">
+    <div class="row">
+      <div class="card-body ">
+        <div class="col-md-12">
+          <div id="accordion" class="accordion-wrapper mb-3">
+            <div class="card">
+
+              <span class="badge badge-pill badge-secondary btn-list-emprunts">
+                List des Emprunts
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 ">
+          <div class="input-group offset-sm-6 rechercher">
+            <input type="text" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <table class="mb-0 table table-striped">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Livre</th>
+              <th>Date Début</th>
+              <th>Date Fin</th>
+              <th>Prolonger</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>Tahiri</td>
+              <td>Abdelali</td>
+              <td>l'oeil du loup</td>
+              <td>13-12-2019</td>
+              <td>20-12-2019</td>
+              <td><a [routerLink]="['/prolonger']" class="mt-1 btn btn-primary">prolonger</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Tahiri</td>
+              <td>Bilal</td>
+              <td>Apprendre a aprprendre</td>
+              <td>20-12-2019</td>
+              <td>31-12-2019</td>
+              <td><a [routerLink]="['/prolonger']" class="mt-1 btn btn-primary">prolonger</a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Tahiri</td>
+              <td>Youssef</td>
+              <td>Je t'aime mais je te veux pas</td>
+              <td>13-12-2019</td>
+              <td>20-12-2019</td>
+              <td><a [routerLink]="['/prolonger']" class="mt-1 btn btn-primary">prolonger</a></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Ait Lachgar</td>
+              <td>Ayoub</td>
+              <td>lkhobz lhafi</td>
+              <td>10-12-2019</td>
+              <td>25-12-2019</td>
+              <td><a [routerLink]="['/prolonger']" class="mt-1 btn btn-primary">prolonger</a></td>
+            </tr>
+            </tbody>
+          </table><br><br>
+          <div class="text-center pagination">
+            <ul class="pagination">
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="app-wrapper-footer">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CatalogueService } from '../services/catalogue.service';
+import { Router } from '@angular/router';
+import { Categorie } from '../categorie';
 
 @Component({
   selector: 'app-categorie',
@@ -9,25 +10,23 @@ import { CatalogueService } from '../services/catalogue.service';
 })
 export class CategorieComponent implements OnInit {
 
-   public categories:any;
+    public categories:any;
     public size:number=5;
     public currentPage:number=0;
     public totalPages:number;
     public pages:Array<number>;
-    constructor(private catService:CatalogueService) { }
+    public categoryUpdated:any;
 
-  ngOnInit() {
-      this.catService.getCategories(this.currentPage,this.size)
-        .subscribe((data:any)=>{
-            this.totalPages=data.totalPages;
-            this.pages=new Array<number>(this.totalPages);
-            this.categories = data;
-        }
-        ,
-        err=>{
-          console.log(err);
-        })
-      }
+
+    categorie: Categorie = new Categorie();
+    submitted = false;
+
+    constructor(private catService:CatalogueService,  private router: Router) { }
+
+    public NotEmpty:boolean = false;
+    ngOnInit() {
+        this.onGetCategories();
+    }
 
     onGetCategories(){
       this.catService.getCategories(this.currentPage,this.size)
@@ -35,6 +34,9 @@ export class CategorieComponent implements OnInit {
           this.totalPages=data.totalPages;
           this.pages=new Array<number>(this.totalPages);
           this.categories = data;
+          if(this.categories.totalElements >0){
+            this.NotEmpty=true;
+          }
       }
       ,
       err=>{
@@ -47,5 +49,58 @@ export class CategorieComponent implements OnInit {
       this.onGetCategories();
     }
 
+    onUpdateCategory(id){
+      this.catService.getCategoryById(id)
+      .subscribe((data:any)=>{
+        this.categoryUpdated = data;
+      }
+      ,
+      err=>{
+        console.log("error"+err);
+      })
+    }
 
+    saveCategory(){
+      this.catService.updateCategory(this.categoryUpdated)
+      .subscribe((data:any) =>{
+        this.categoryUpdated = null;
+        this.onGetCategories();
+      },
+      err=>{
+
+      })
+    }
+
+    availabilityChange(filterVal: any) {
+      if(filterVal==="0"){
+        this.categoryUpdated.active = 0;
+      }else{
+        this.categoryUpdated.active = 1;
+      }
+    }
+
+    /** doing by Tahiri=> Start i add the categories here etape2 */
+    newCategorie(): void {
+      this.submitted = false;
+      this.categorie = new Categorie();
+    }
+
+  save() {
+    this.catService.createCategorie(this.categorie)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.categorie = new Categorie();
   }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+
+  /** i cant't delete yet i cant just get the id of this category */
+  onDeleteCategorie(id: number) {
+    console.log(id);
+  }
+
+
+  /** doing by Tahiri End of code */
+}
