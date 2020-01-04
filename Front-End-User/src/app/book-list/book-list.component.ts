@@ -17,7 +17,6 @@ export class BookListComponent implements OnInit {
   public pages:Array<number>;
   public currentCategorie:any;
   public numberOfCategories: any;
-  public empty = "";
   constructor(private http : HttpClient,
     private booklist:BookListService) { }
 
@@ -40,7 +39,7 @@ export class BookListComponent implements OnInit {
     this.booklist.getLivres(this.currentPage,this.size)
     .subscribe(
       (data:any)=>{
-        // console.log(data)
+        console.log(data)
         this.totalPages=data.totalPages;
         this.pages=new Array<number>(this.totalPages);
         this.livres = data;

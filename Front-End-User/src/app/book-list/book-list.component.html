@@ -59,7 +59,7 @@
             <h2 class="screen-reader-text">Posts navigation</h2>
             <div class="nav-links">
                 <span [ngClass]="i==currentPage? 'current':''"
-                class="page-numbers current"
+                class="page-numbers "
                 *ngFor="let p of pages; let i=index"
                 (click)="onPageProduct(i)">
                     {{i+1}}
