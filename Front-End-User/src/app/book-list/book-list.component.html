@@ -20,11 +20,13 @@
         <div class="books-list" *ngIf="livres">
             <article *ngFor="let l of livres.content" >
                 <div class="single-book-box" *ngIf="l.category.id_category == currentCategorie.id_category && l?.available == 1 let empty='' ; else let empty='yes'">
-                    <div class="post-thumbnail" let i=index>
+                    <div class="post-thumbnail col-md-5" >
                         <!-- <div class="book-list-icon yellow-icon"></div> -->
-                        <a href="#"><img alt="Book"
-                                src="../../assets/images/books-media/list-view/book-media-01.jpg" /></a> </div>
-                    <div class="post-detail">
+                        <a href="#">
+                            <img alt="Book" src="../../assets/images/Coming-Soon.png" />
+                        </a>
+                    </div>
+                    <div class="post-detail col-md-7" >
                         <header class="entry-header">
                             <div class="row">
                                 <div class="col-sm-6">

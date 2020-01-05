@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 
 
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     TopMenuComponent,
     FooterComponent,
-    routingComponents
+    routingComponents,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

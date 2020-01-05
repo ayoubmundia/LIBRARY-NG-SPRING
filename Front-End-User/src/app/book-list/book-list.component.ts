@@ -25,7 +25,7 @@ export class BookListComponent implements OnInit {
       (data:any) =>{
         this.Categories = data;
         this.numberOfCategories=data.length
-        console.log(JSON.stringify(this.Categories))
+        // console.log(JSON.stringify(this.Categories))
       },
       err =>{
         console.log(err);
