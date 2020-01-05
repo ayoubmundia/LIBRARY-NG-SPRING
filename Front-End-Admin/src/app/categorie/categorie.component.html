@@ -5,9 +5,10 @@
         <div class="col-md-12">
           <div id="accordion" class="accordion-wrapper mb-3">
             <div class="card card-btn">
-              <a class="btn btn-primary btn-lg btn-ajouter-categorie" data-toggle="modal" data-target="#categorieModal">
+              <button class="btn btn-primary btn-lg btn-ajouter-categorie" data-toggle="modal"
+                       data-target="#categorieModal">
                 Ajouter Une Categorie
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -37,14 +38,14 @@
               <td class="text-center" *ngIf="l.active == 1">oui</td>
               <td class="text-center" *ngIf="l.active == 0">non</td>
               <td class="text-center">
-                <button class="btn btn-md btn-info css-btn" data-toggle="modal" 
+                <button class="btn btn-md btn-info css-btn" data-toggle="modal"
                 (click)="onUpdateCategory(l.id_category)" data-target="#categorieModalupdate">
                   <i class="fas fa-edit"></i>
                 </button>
                 <!--<button class="btn btn-md btn-success css-btn">
                   <i class="fa fa-eye"></i>
                 </button>-->
-                <button class="btn btn-md btn-danger css-btn">
+                <button (click)="onDeleteCategorie(l.id_category)"  class="btn btn-md btn-danger css-btn" >
                   <i class="fa fa-trash"></i>
                 </button>
               </td>
@@ -69,39 +70,43 @@
 
 
 
-
+<!-- doing by Tahiri Start i add the categories here  etape3 -->
 <div class="modal fade modal" id="categorieModal" tabindex="-1" role="dialog" aria-labelledby="categorieModal" style="" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="categorieModalLabel">La Création D'Une Novelle Catégorie</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="modal-x">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="position-relative row form-group">
-          <label for="exampleEmail" class="col-sm-3 col-form-label">Nom De Catégorie :</label>
-          <div class="col-sm-9"><input name="name" id="categorie" placeholder="saisir le nom de la Catégorie" type="text" class="form-control  input-livre"></div>
+    <div class="modal-content" >
+      <form (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="categorieModalLabel">La Création D'Une Novelle Catégorie</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="modal-x">×</span>
+          </button>
         </div>
-
-        <div class="position-relative row form-group">
-          <label for="exampleEmail" class="col-sm-3 col-form-label">Disponibilité :</label>
-          <div class="col-sm-9  input-livre ">
-            <select class="select-disponible">
-              <option value="volvo">Disponible</option>
-              <option value="saab">Indisponible</option>
-            </select>
+        <div class="modal-body">
+          <div class="position-relative row form-group">
+            <label for="name" class="col-sm-3 col-form-label">Nom De Catégorie :</label>
+            <div class="col-sm-9"><input  id="title" name="title" required [(ngModel)]="categorie.title"
+                placeholder="saisir le nom de la Categorie" type="text" class="form-control  input-livre">
+            </div>
+          </div>
+          <div class="position-relative row form-group">
+              <label for="exampleEmail" class="col-sm-3 col-form-label">Disponibilité :</label>
+              <div class="col-sm-9  input-livre ">
+                <select class="select-disponible" [(ngModel)]="categorie.active" name="active">
+                  <option [value]="true">Disponible</option>
+                  <option [value]="false">Indisponible</option>
+                </select>
+              </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary">Sauvegarder</button>
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          <button  type="submit" class="btn btn-primary" >Sauvegarder</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+<!-- doing by Tahiri End of code -->
 
 
 <div class="modal fade modal" id="categorieModalupdate" tabindex="0" role="dialog" aria-labelledby="categorieModalUpdate" style="" aria-hidden="true">
@@ -117,9 +122,9 @@
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">Nom De Catégorie :</label>
           <div class="col-sm-9">
-            <input name="name" 
-                  [value]="categoryUpdated!= 'undefined'?categoryUpdated.title:''" 
-                  id="categorie_up" placeholder="saisir le nom de la Catégorie" 
+            <input name="name"
+                  [value]="categoryUpdated!= 'undefined'?categoryUpdated.title:''"
+                  id="categorie_up" placeholder="saisir le nom de la Catégorie"
                   type="text" class="form-control  input-livre"
                   (input)="categoryUpdated.title = $event.target.value">
           </div>

@@ -1,0 +1,76 @@
+    .filter{
+        height: 60px !important;
+    }
+    .filter-button{
+        font-size: 18px;
+    }
+    .pagination{
+        margin-left: 220px !important;
+        margin-top: -8px;
+    }
+    .th-table-livre{
+        height: 50px;
+        font-size: 20px;
+    }
+    .img-circle{
+        height:100px;width:100px;
+    }
+    .td-table{
+        font-size: 20px;
+    }
+    .table-striped{
+        background-color: white;
+    }
+    .input-livre{
+        width: 100%;
+
+    }
+    .input-livre-img{
+        margin-left: 14px !important;
+        width:71%;
+    }
+
+    .modal-body{
+        margin-top: -4px;
+    }
+    .modal-header{
+        margin-top: -30px;
+    }
+    .modal-footer{
+        margin-top: -27px;
+    }
+    .modal-x{
+        font-size: 30px;
+    }
+    .select-disponible{
+        height: 33px;
+        width: 570px;
+        border-radius: 8px;
+        width: 100%;
+    }
+    .icons{
+        font-size: 26px !important;
+    }
+    .big-links-menu{
+        font-size: 15px
+    }
+    .btn-emprunter-livre{
+        color:white !important;
+        width: 15%;
+        margin-top: 13px;
+        margin-left: 10px;
+    }
+    .card-btn{
+        height: 60px;
+    }
+    .card-principal{
+      height: 60px;
+    }
+    .card-title{
+        color: orange;
+    }
+
+    .app-main{
+      margin-top:-770px!important;
+      margin-left: 235px;
+    }

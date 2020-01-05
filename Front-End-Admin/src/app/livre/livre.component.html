@@ -42,7 +42,7 @@
               <td class="text-center" *ngIf="l.available == 1">oui</td>
               <td class="text-center" *ngIf="l.available == 0">non</td>
               <td class="text-center">
-                <button class="btn btn-md btn-info css-btn" data-toggle="modal" 
+                <button class="btn btn-md btn-info css-btn" data-toggle="modal"
                         data-target="#livreModal_update"
                         (click)="onGetlivreUpdate(l.id_book)">
                   <i class="fas fa-edit"></i>
@@ -65,85 +65,98 @@
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div class="app-wrapper-footer">
       </div>
     </div>
-    <div class="app-wrapper-footer">
-    </div>
   </div>
-</div>
 </div>
 
 <!-- Add Book Pop Up-->
+<!-- doing by Tahiri Start i add the books here  etape3 -->
 <div class="modal fade modal" id="livreModal" tabindex="-1" role="dialog" aria-labelledby="livreModalLabel"  aria-hidden="true">
-<div class="modal-dialog modal-lg" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="livreModalLabel">La Création D'Un Noveau Livre </h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true" class="modal-x">×</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Tittre De Livre :</label>
-        <div class="col-sm-9"><input name="name" id="book_title" placeholder="saisir le nom" type="text" class="form-control  input-livre"></div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Auteur :</label>
-        <div class="col-sm-9">
-          <input name="name" id="book_author" placeholder="Saisir Le Nom De L'Auteur" type="text" class="form-control   input-livre">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <form (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="livreModalLabel">La Création D'Un Noveau Livre </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="modal-x">×</span>
+          </button>
         </div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">File name  :</label>
-        <input type="file" name="imgfile" id="book_file" class="form-control input-livre-img"> <br>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Date De publication  :</label>
-        <div class="col-sm-9">
-          <input name="name" id="book_date" placeholder="Saisir La Date De PublicationDe Livre" type="date" class="form-control   input-livre">
+        <div class="modal-body">
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label" >Tittre De Livre :</label>
+            <div class="col-sm-9"><input id="title" name="title" required [(ngModel)]="book.title" placeholder="saisir le titre de livre" type="text" class="form-control  input-livre"></div>
+          </div>
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">Auteur :</label>
+            <div class="col-sm-9">
+              <input id="author" name="author" required [(ngModel)]="book.author" placeholder="Saisir Le Nom De L'Auteur" type="text" class="form-control   input-livre">
+            </div>
+          </div>
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">File name  :</label>
+            <input type="file" name="imgfile" id="book_file" class="form-control input-livre-img"> <br>
+          </div>
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label" id="date_publication" >Date De publication  :</label>
+            <div class="col-sm-9">
+              <input name="date_publication" required [(ngModel)]="book.date_publication" placeholder="Saisir La Date De PublicationDe Livre" type="date" class="form-control   input-livre">
+            </div>
+          </div>
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">Edition  :</label>
+            <div class="col-sm-9">
+              <input name="edition" required [(ngModel)]="book.edition" placeholder="Saisir L'Edition De Livre" type="text" class="form-control input-livre">
+            </div>
+          </div>
+
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">Quantité :</label>
+            <div class="col-sm-9">
+              <input name="quantite" value="0" min="0" id="quantite" required [(ngModel)]="book.quantite"  placeholder="Saisir La Quantité De Livre" type="number" class="form-control input-livre">
+            </div>
+          </div>
+          <!-- ERROR ==>> i can't add the id_category here to the table book -->
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">Catégories :</label>
+            <div class="col-sm-9  input-livre ">
+              <select class="select-disponible" [ngModel]="book.category" name="category"  required>
+                <option  *ngFor="let cat of categories" [value]="cat.id_category">{{cat.title}}</option>
+              </select>
+            </div>
+          </div>
+          <!-- we create the book always active
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">Disponibilité :</label>
+            <div class="col-sm-9  input-livre ">
+              <select class="select-disponible" [(ngModel)]="book.available" name="available">
+                <option [value]="true">Disponible</option>
+                <option [value]="false">Indisponible</option>
+              </select>
+            </div>
+          </div>
+          -->
+
+          <div class="position-relative row form-group">
+            <label for="exampleEmail" class="col-sm-3 col-form-label">Résumer De Livre :</label>
+            <div class="col-sm-9">
+                  <textarea  name="description" required [(ngModel)]="book.description" placeholder="Saisir Le Résumer De Livre" type="" class="form-control input-livre"  rows="8" cols="24">
+                  </textarea>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Edition  :</label>
-        <div class="col-sm-9">
-          <input name="name" id="book_edition" placeholder="Saisir L'Edition De Livre" type="text" class="form-control input-livre">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          <button type="submit" class="btn btn-primary">Sauvegarder</button>
         </div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Disponibilité :</label>
-        <div class="col-sm-9  input-livre ">
-          <select class="select-disponible" id="book_availability">
-            <option value="volvo">Disponible</option>
-            <option value="saab">Occupé</option>
-          </select>
-        </div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Quantité :</label>
-        <div class="col-sm-9">
-          <input name="name" value="0" id="book_quanity" placeholder="Saisir La Quantité De Livre" type="number" class="form-control input-livre">
-        </div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Catégorie :</label>
-        <div class="col-sm-9"><input name="name" id="book_category" placeholder="Saisir La Catégorie De Livre" type="text" class="form-control   input-livre"></div>
-      </div>
-      <div class="position-relative row form-group">
-        <label for="exampleEmail" class="col-sm-3 col-form-label">Résumer De Livre :</label>
-        <div class="col-sm-9">
-              <textarea name="" id="book_resume" placeholder="Saisir Le Résumer De Livre" type="" class="form-control input-livre"  rows="8" cols="24">
-              </textarea>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-      <button type="button" class="btn btn-primary">Sauvegarder</button>
+      </form>
     </div>
   </div>
 </div>
-</div>
+<!-- doing by Tahiri End of code -->
 
 <!-- Update Book Pop Up-->
 <div  class="modal fade modal" id="livreModal_update" tabindex="-2" role="dialog" aria-labelledby="livreModalLabelUpdate" aria-hidden="true">
@@ -168,42 +181,42 @@
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">Auteur :</label>
           <div class="col-sm-9">
-            <input name="name" id="book_authorUpdate" 
-                   placeholder="Saisir Le Nom De L'Auteur" 
-                   type="text" 
-                   class="form-control   input-livre" 
+            <input name="name" id="book_authorUpdate"
+                   placeholder="Saisir Le Nom De L'Auteur"
+                   type="text"
+                   class="form-control   input-livre"
                    (input)="livreUpdated.author = $event.target.value"
                    [value]="livreUpdated!= 'undefined'?livreUpdated.author:''">
           </div>
         </div>
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">File name  :</label>
-          <input type="file" 
-                  name="imgfile" 
-                  id="book_fileUpdate" 
-                  class="form-control input-livre-img">
-        <br>
+          <input type="file"
+                 name="imgfile"
+                 id="book_fileUpdate"
+                 class="form-control input-livre-img">
+          <br>
         </div>
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">Date De publication  :</label>
           <div class="col-sm-9">
-            <input name="name" 
-            id="book_dateUpdate" 
-            placeholder="Saisir La Date De PublicationDe Livre" 
-            type="date" 
-            (input)="livreUpdated.date_publication = $event.target.value"
-            [value]="livreUpdated!= 'undefined'?livreUpdated.date_publication:''"
-            class="form-control   input-livre">
+            <input name="name"
+                   id="book_dateUpdate"
+                   placeholder="Saisir La Date De PublicationDe Livre"
+                   type="date"
+                   (input)="livreUpdated.date_publication = $event.target.value"
+                   [value]="livreUpdated!= 'undefined'?livreUpdated.date_publication:''"
+                   class="form-control   input-livre">
           </div>
         </div>
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">Edition  :</label>
           <div class="col-sm-9">
-            <input name="name" 
-            id="book_editionUpdate" 
-            [value]="livreUpdated!= 'undefined'?livreUpdated.edition:''"
-            (input)="livreUpdated.edition = $event.target.value"
-            placeholder="Saisir L'Edition De Livre" type="text" class="form-control input-livre">
+            <input name="name"
+                   id="book_editionUpdate"
+                   [value]="livreUpdated!= 'undefined'?livreUpdated.edition:''"
+                   (input)="livreUpdated.edition = $event.target.value"
+                   placeholder="Saisir L'Edition De Livre" type="text" class="form-control input-livre">
           </div>
         </div>
         <div class="position-relative row form-group">
@@ -218,11 +231,11 @@
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">Quantité :</label>
           <div class="col-sm-9">
-            <input name="name" value="0" id="book_quanityUpdate" 
-            placeholder="Saisir La Quantité De Livre" 
-            [value]="livreUpdated!= 'undefined'?livreUpdated.quantite:''"
-            (input)="livreUpdated.quantite = $event.target.value"
-            type="number" class="form-control input-livre">
+            <input name="name" value="0" id="book_quanityUpdate"
+                   placeholder="Saisir La Quantité De Livre"
+                   [value]="livreUpdated!= 'undefined'?livreUpdated.quantite:''"
+                   (input)="livreUpdated.quantite = $event.target.value"
+                   type="number" class="form-control input-livre">
           </div>
         </div>
         <div class="position-relative row form-group">
@@ -237,12 +250,12 @@
         <div class="position-relative row form-group">
           <label for="exampleEmail" class="col-sm-3 col-form-label">Résumer De Livre :</label>
           <div class="col-sm-9">
-                <textarea 
-                name="" 
-                id="book_resumeUpdate" 
-                placeholder="Saisir Le Résumer De Livre" type="" 
-                (input)="livreUpdated.description = $event.target.value"
-                class="form-control input-livre"  rows="8" cols="24">{{ livreUpdated.description}}</textarea>
+                <textarea
+                  name=""
+                  id="book_resumeUpdate"
+                  placeholder="Saisir Le Résumer De Livre" type=""
+                  (input)="livreUpdated.description = $event.target.value"
+                  class="form-control input-livre"  rows="8" cols="24">{{ livreUpdated.description}}</textarea>
           </div>
         </div>
       </div>
