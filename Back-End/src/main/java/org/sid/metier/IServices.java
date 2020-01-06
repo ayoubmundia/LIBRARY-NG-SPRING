@@ -17,6 +17,7 @@ public interface IServices {
 	Category updateCategoryById(Long id,Category category);
 	Category addCategory(Category category);
 	List<Book> getBookOfCategory(Long id);
+	Page<Book> getBookOfCategoryPage(Long id, Pageable page);
 	Page getAllCategoriesPage(Pageable pageable );
 	//User Services
 	User findUserByMailAndPassword(String mail, String password);

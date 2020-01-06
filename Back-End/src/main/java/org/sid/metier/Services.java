@@ -14,6 +14,7 @@ import org.sid.entites.Demande;
 import org.sid.entites.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -76,6 +77,16 @@ public class Services implements IServices {
 		
 	}
 
+	//Books Services Implimentation
+	
+	@Override
+	public Page<Book> getBookOfCategoryPage(Long id, Pageable page ) {
+		//Pageable p = PageRequest.of(page, size);
+		List<Book> list = (List<Book>) categoryRepository.findById(id).get().getBooks();
+		Page<Book> pages = new PageImpl<Book>(list, page, list.size());
+		return pages ;
+	}
+	
 	//User Services Implimentation
 	
 	@Override

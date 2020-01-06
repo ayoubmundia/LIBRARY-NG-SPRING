@@ -73,5 +73,10 @@ public class CategoryController {
 	Page<Category> getAllCategoriesPage(Pageable pageable) {
 		return biblioServices.getAllCategoriesPage(pageable);
 	}
+	
+	@RequestMapping(value = "/{id}/books", method = RequestMethod.GET)
+	Page<Book> getAllCategoriesPage(@PathVariable Long id, Pageable pageable ) {
+		return biblioServices.getBookOfCategoryPage(id,pageable);
+	}
 
 }
