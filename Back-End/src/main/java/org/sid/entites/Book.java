@@ -1,25 +1,21 @@
-package org.sid.entities;
+package org.sid.entites;
 
 import java.util.Collection;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Book {
-	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_book;
 	
@@ -33,28 +29,24 @@ public class Book {
 	
 	private boolean isAvailable = true;
 	private String image;
-	/*
-	 * it may cause a problem , so we will dealt with it later
-	 * private int quantite;
-	 */
 	private int quantite;
 	
 	@Column(length=512)
 	private String description;
 	
-	@ManyToOne @JoinColumn(name="Id_Category")
+	@ManyToOne
 	private Category category;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="book")
-	private Collection<Operation> operation;
+	private Collection<Emprunt> emprunts;
 
 	public Book() {
 		super();
 	}
 
 	public Book(String author, String title, String edition, Date date_publication, boolean isAvailable, String image,
-			int quantite, String description, Category category, Collection<Operation> operation) {
+			int quantite, String description, Category category, Collection<Emprunt> emprunts) {
 		super();
 		this.author = author;
 		this.title = title;
@@ -64,8 +56,8 @@ public class Book {
 		this.image = image;
 		this.quantite = quantite;
 		this.description = description;
-		this.category = category;
-		this.operation = operation;
+    	this.category = category;
+		this.emprunts = emprunts;
 	}
 
 	public Long getId_book() {
@@ -148,15 +140,12 @@ public class Book {
 		this.category = category;
 	}
 
-	public Collection<Operation> getOperation() {
-		return operation;
+	public Collection<Emprunt> getEmprunts() {
+		return emprunts;
 	}
 
-	public void setOperation(Collection<Operation> operation) {
-		this.operation = operation;
+	public void setEmprunts(Collection<Emprunt> emprunts) {
+		this.emprunts = emprunts;
 	}
 
-	
-	
-	
 }

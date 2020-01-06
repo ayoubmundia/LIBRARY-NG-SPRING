@@ -1,9 +1,9 @@
-package org.sid.restControllers;
+package org.sid.rest;
 
 import java.util.List;
 
 import org.sid.dao.BookRepository;
-import org.sid.entities.Book;
+import org.sid.entites.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(BookRestControllers.BASE_URL)
-public class BookRestControllers {
-	
-	public static final String BASE_URL = "api/livres";
+@RequestMapping(BookController.BASE_URL)
+public class BookController {
+public static final String BASE_URL = "api/livres";
 	
 	/*Injection de dépendances*/
 	@Autowired 

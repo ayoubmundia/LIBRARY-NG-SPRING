@@ -6,24 +6,20 @@ import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
 import org.sid.dao.UserRepository;
-import org.sid.entities.Admin;
-import org.sid.entities.Book;
-import org.sid.entities.Category;
-import org.sid.entities.Demande;
-import org.sid.entities.Member;
+import org.sid.entites.Book;
+import org.sid.entites.Category;
+import org.sid.entites.Demande;
+import org.sid.entites.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MundiaBackEndApplication implements CommandLineRunner {
-
+public class Library1Application implements CommandLineRunner {
+	
 	@Autowired
 	private BookRepository bookRepository;
-	
-	//@Autowired
-	//private OperationRepository operationRepository;
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -33,13 +29,15 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 	
 	@Autowired
 	private DemandeRepository demandeRepository;
-	
+
 	public static void main(String[] args) {
-		SpringApplication.run(MundiaBackEndApplication.class, args);
+		SpringApplication.run(Library1Application.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		System.out.println("Library Back End On Fire!!");
+		
 		Category C1 = new Category();
 		C1.setTitle("1984");
 		C1.setActive(true);
@@ -107,21 +105,21 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		D3.setDate(new Date("1998/11/11"));
 		D3.setPassword("passworsssd");
 		
-		Member U1 = new Member();
+		User U1 = new User();
 		U1.setFirst_name("google");
 		U1.setLast_name("lastgoogle");
 		U1.setMail("mailu1@m.com");
 		U1.setPassword("1233");
 		U1.setBiblio("sssbiibil");
 		
-		Member U2 = new Member();
+		User U2 = new User();
 		U2.setFirst_name("gossogle");
 		U2.setLast_name("lastgoogle");
 		U2.setMail("mailu2@m.com");
 		U2.setPassword("233");
 		U2.setBiblio("biibil");
 		
-		Admin U3 = new Admin();
+		User U3 = new User();
 		U3.setFirst_name("faile");
 		U3.setLast_name("lastgoogle");
 		U3.setMail("mailu3@m.com");
@@ -143,6 +141,7 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		userRepository.save(U1);
 		userRepository.save(U2);
 		userRepository.save(U3);
+		
 	}
 
 }

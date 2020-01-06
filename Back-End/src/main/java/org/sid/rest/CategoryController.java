@@ -1,10 +1,10 @@
-package org.sid.restControllers;
+package org.sid.rest;
 
 import java.util.List;
 
-import org.sid.entities.Book;
-import org.sid.entities.Category;
-import org.sid.metier.BiblioServices;
+import org.sid.entites.Book;
+import org.sid.entites.Category;
+import org.sid.metier.IServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,61 +21,57 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin("*")
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(CategoryRestController.BASE_URL)
-public class CategoryRestController {
+@RequestMapping(CategoryController.BASE_URL)
+public class CategoryController {
 	
 	public static final String BASE_URL = "api/categories";
 	
 	@Autowired
-	public BiblioServices biblioServices;
+	public IServices biblioServices;
 	
-	public CategoryRestController(BiblioServices bs) {
+	public CategoryController(IServices bs) {
 		this.biblioServices = bs;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 	List<Category> getAllCategories(){
-		return biblioServices.findAllCategories();
+		return biblioServices.getAllCategories();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/{id}/livres")
-	List<Book> getBookByCategory(@PathVariable Long id){
-		return biblioServices.getBooksByCat(id);
-	}
-	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/{id}")
 	public Category getCategoryById(@PathVariable Long id) {
-		return biblioServices.findCategoryById(id);
+		return biblioServices.getCategoryById(id);
+	}
+	
+	@GetMapping("/{id}/livres")
+	List<Book> getBooksByCategory(@PathVariable Long id){
+		return biblioServices.getBookOfCategory(id);
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteCategoryById(@PathVariable Long id) {
+	public void deleteCategory(@PathVariable Long id) {
 		biblioServices.deleteCategoryById(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Category saveCategory(@RequestBody Category category) {
-		return biblioServices.saveCategory(category);
+	public Category addCategory(@RequestBody Category category) {
+		return biblioServices.addCategory(category);
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	
 	@PutMapping("/{id}")
-	public Category updateCategoryById(@PathVariable Long id,@RequestBody Category cst){
+	public Category updateCategory(@PathVariable Long id,@RequestBody Category cst){
 		cst.setId_category(id);
-		return biblioServices.saveCategory(cst);
+		return biblioServices.updateCategoryById(id, cst);
 	}
-	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/listPageable", method = RequestMethod.GET)
-	Page<Category> booksPageable(Pageable pageable) {
-		return biblioServices.getCategories(pageable);
 
+	@RequestMapping(value = "/listPageable", method = RequestMethod.GET)
+	Page<Category> getAllCategoriesPage(Pageable pageable) {
+		return biblioServices.getAllCategoriesPage(pageable);
 	}
-	
+
 }

@@ -1,9 +1,9 @@
-package org.sid.restControllers;
+package org.sid.rest;
 
 import java.util.List;
 
-import org.sid.entities.Demande;
-import org.sid.metier.BiblioServices;
+import org.sid.entites.Demande;
+import org.sid.metier.IServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,30 +13,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-@CrossOrigin("*")
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(DemandeRestControllers.BASE_URL)
-public class DemandeRestControllers {
-	
-	public static final String BASE_URL = "api/demandes";
+@RequestMapping(DemandeController.BASE_URL)
+public class DemandeController {
+public static final String BASE_URL = "api/demandes";
 	
 	@Autowired
-	public BiblioServices biblioServices;
+	public IServices biblioServices;
 	
-	public DemandeRestControllers(BiblioServices bs) {
+	public DemandeController(IServices bs) {
 		this.biblioServices = bs;
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping()
 	List<Demande> getAllDemandes(){
-		return biblioServices.findAllDemandes();
+		return biblioServices.getAllDemandes();
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping()
 	@ResponseStatus(HttpStatus.CREATED)
 	public Demande saveDemande(@RequestBody Demande demande) {
-		return biblioServices.saveDemande(demande);
+		return biblioServices.addDemande(demande);
 	}
 }

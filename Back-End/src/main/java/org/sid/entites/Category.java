@@ -1,4 +1,4 @@
-package org.sid.entities;
+package org.sid.entites;
 
 import java.util.Collection;
 

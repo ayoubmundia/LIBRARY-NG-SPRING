@@ -1,21 +1,15 @@
-package org.sid.entities;
+package org.sid.entites;
 
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TYPE_ACCOUNT",discriminatorType = DiscriminatorType.STRING,length = 3)
 public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -25,21 +19,20 @@ public class User {
 	private String mail;
 	private Date date ;
 	private String image;
-	
 	private String password;
 	
 	@Column(length = 512)
 	private String biblio;
 	
 	@OneToMany(mappedBy="user")
-	private Collection<Operation> operations;
+	private Collection<Emprunt> emprunts;
 
 	public User() {
 		super();
 	}
 
 	public User(String first_name, String last_name, String mail, Date date, String image, String password,
-			String biblio, Collection<Operation> operations) {
+			String biblio, Collection<Emprunt> emprunts) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -48,7 +41,7 @@ public class User {
 		this.image = image;
 		this.password = password;
 		this.biblio = biblio;
-		this.operations = operations;
+		this.emprunts = emprunts;
 	}
 
 
@@ -109,12 +102,12 @@ public class User {
 		this.biblio = biblio;
 	}
 
-	public Collection<Operation> getOperations() {
-		return operations;
+	public Collection<Emprunt> getEmprunts() {
+		return emprunts;
 	}
 
-	public void setOperations(Collection<Operation> operations) {
-		this.operations = operations;
+	public void setEmprunts(Collection<Emprunt> emprunts) {
+		this.emprunts = emprunts;
 	}
 
 	public String getPassword() {

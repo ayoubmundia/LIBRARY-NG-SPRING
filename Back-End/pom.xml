@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.sid</groupId>
-	<artifactId>Mundia_BackEnd</artifactId>
+	<artifactId>Library-backEnd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Mundia_BackEnd</name>
+	<name>Library-1</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -20,12 +20,12 @@
 
 	<dependencies>
 		<dependency>
-	        <groupId>javax.xml.bind</groupId>
-	        <artifactId>jaxb-api</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,14 +57,10 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!--<dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
-		</dependency>-->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-rest-core</artifactId>
 		</dependency>
 	</dependencies>
 
