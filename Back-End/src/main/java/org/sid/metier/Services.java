@@ -1,5 +1,6 @@
 package org.sid.metier;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -80,12 +82,45 @@ public class Services implements IServices {
 	//Books Services Implimentation
 	
 	@Override
-	public Page<Book> getBookOfCategoryPage(Long id, Pageable page ) {
-		//Pageable p = PageRequest.of(page, size);
+	public Page<Book> getBookOfCategoryPage(Long id, int page , int size ) {
+		Pageable p = PageRequest.of(page, size);
 		List<Book> list = (List<Book>) categoryRepository.findById(id).get().getBooks();
-		Page<Book> pages = new PageImpl<Book>(list, page, list.size());
+		List<Book> newList;
+		
+		int start = page*size;
+		int end = start + size  ;
+		
+		
+		
+		int total_size = list.size();
+
+		while(true) {
+			if(end > total_size)
+			{
+				end = end - 1; 
+			}else {
+				break;
+			}
+		}
+		newList = list.subList(start, end);
+		System.out.println(end+"__"+start);
+		for(int i = 0 ; i < newList.size() ; i++) {
+			System.out.println(newList.get(i));
+		}
+
+		Page<Book> pages = new PageImpl<Book>(newList, p, list.size());
+		System.out.println("wselt");
 		return pages ;
+		
 	}
+	
+//	@Override
+//	public Page<Book> getBookOfCategoryPage(Long id, in ) {
+//		//Pageable p = PageRequest.of(page, size);
+//		List<Book> list = (List<Book>) categoryRepository.findById(id).get().getBooks();
+//		Page<Book> pages = new PageImpl<Book>(list, page, list.size());
+//		return pages ;
+//	}
 	
 	//User Services Implimentation
 	

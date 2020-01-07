@@ -11,7 +11,7 @@ export class BookListComponent implements OnInit {
   public host: string = "http://localhost:8088";
   public Categories:any;
   public livres:any;
-  public size:number=4;
+  public size:number=5;
   public currentPage:number=0;
   public totalPages:number;
   public pages:Array<number>;
