@@ -5,12 +5,16 @@ import java.util.Date;
 import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
+import org.sid.dao.OperationRepository;
 import org.sid.dao.UserRepository;
 import org.sid.entities.Admin;
 import org.sid.entities.Book;
 import org.sid.entities.Category;
 import org.sid.entities.Demande;
+import org.sid.entities.Emprunt;
 import org.sid.entities.Member;
+import org.sid.entities.Operation;
+import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,8 +26,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 	@Autowired
 	private BookRepository bookRepository;
 	
-	//@Autowired
-	//private OperationRepository operationRepository;
+	@Autowired
+	private OperationRepository operationRepository;
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -85,6 +89,12 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		B3.setQuantite(1000);
 		B3.setDate_publication(new Date("2000/10/10"));
 		
+		Operation O1= new Emprunt();
+		O1.setBook(B1);
+		//O1.setUser();
+		O1.setDate_debut_operation(new Date("2000/10/10"));
+		O1.setDate_fin_operation(new Date("2000/10/10"));
+		
 		Demande D1 = new Demande();
 		D1.setFirst_name("use1");
 		D1.setLast_name("last1");
@@ -121,7 +131,7 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		U2.setPassword("233");
 		U2.setBiblio("biibil");
 		
-		Admin U3 = new Admin();
+		User U3 = new Admin();
 		U3.setFirst_name("faile");
 		U3.setLast_name("lastgoogle");
 		U3.setMail("mailu3@m.com");
@@ -143,6 +153,8 @@ public class MundiaBackEndApplication implements CommandLineRunner {
 		userRepository.save(U1);
 		userRepository.save(U2);
 		userRepository.save(U3);
+		
+		operationRepository.save(O1);
 	}
 
 }

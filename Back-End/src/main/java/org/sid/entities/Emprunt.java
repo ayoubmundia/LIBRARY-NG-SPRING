@@ -13,8 +13,11 @@ public class Emprunt extends Operation {
 		super();
 	}
 
-	public Emprunt(Date date_operation, Book book, User user) {
-		super(date_operation, book, user);
+	public Emprunt(Date date_debut_operation, Date date_fin_operation, Book book, User user) {
+		super(date_debut_operation, date_fin_operation, book, user);
+		
 	}
+
+	
 	
 }
