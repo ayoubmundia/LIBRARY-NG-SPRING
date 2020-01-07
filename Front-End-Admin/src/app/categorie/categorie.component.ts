@@ -85,22 +85,23 @@ export class CategorieComponent implements OnInit {
       this.categorie = new Categorie();
     }
 
-  save() {
-    this.catService.createCategorie(this.categorie)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.categorie = new Categorie();
-  }
+    save() {
+      this.catService.createCategorie(this.categorie)
+        .subscribe(data => console.log(data), error => console.log(error));
+      this.categorie = new Categorie();
+      this.onGetCategories();
+    }
 
-  onSubmit() {
-    this.submitted = true;
-    this.save();
-  }
+    onSubmit() {
+      this.submitted = true;
+      this.save();
+    }
 
-  /** i cant't delete yet i cant just get the id of this category */
-  onDeleteCategorie(id: number) {
-    console.log(id);
-  }
+    /** i cant't delete yet i cant just get the id of this category */
+    onDeleteCategorie(id: number) {
+      console.log(id);
+    }
 
 
-  /** doing by Tahiri End of code */
+    /** doing by Tahiri End of code */
 }

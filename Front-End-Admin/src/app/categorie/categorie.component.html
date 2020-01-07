@@ -6,7 +6,7 @@
           <div id="accordion" class="accordion-wrapper mb-3">
             <div class="card card-btn">
               <button class="btn btn-primary btn-lg btn-ajouter-categorie" data-toggle="modal"
-                       data-target="#categorieModal">
+                       data-target="#categorieModal" (click)="pupup_add=true">
                 Ajouter Une Categorie
               </button>
             </div>
@@ -71,8 +71,8 @@
 
 
 <!-- doing by Tahiri Start i add the categories here  etape3 -->
-<div class="modal fade modal" id="categorieModal" tabindex="-1" role="dialog" aria-labelledby="categorieModal" style="" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade modal" id="categorieModal" tabindex="-1" role="dialog" aria-labelledby="categorieModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"  >
     <div class="modal-content" >
       <form (ngSubmit)="onSubmit()">
         <div class="modal-header">
@@ -107,7 +107,6 @@
   </div>
 </div>
 <!-- doing by Tahiri End of code -->
-
 
 <div class="modal fade modal" id="categorieModalupdate" tabindex="0" role="dialog" aria-labelledby="categorieModalUpdate" style="" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">

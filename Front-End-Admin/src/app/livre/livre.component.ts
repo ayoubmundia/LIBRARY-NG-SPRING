@@ -58,6 +58,7 @@ constructor(private catService:CatalogueService,  private router: Router) { }
   }
 
   onGetlivreUpdate(i){
+    console.log(9898);
     this.catService.getLivreById(i)
     .subscribe((data:any)=>{
         this.onUpdate = true;
@@ -115,6 +116,7 @@ constructor(private catService:CatalogueService,  private router: Router) { }
     this.catService.createBook(this.book)
       .subscribe(data => console.log(data), error => console.log(error));
     this.book = new Book();
+    
   }
 
   onSubmit() {
