@@ -105,6 +105,16 @@ constructor(private catService:CatalogueService,  private router: Router) { }
       console.log("error");
     })
   }
+  addCategoryChange(filterVal: any) {
+    this.catService.getCategoryById(filterVal)
+    .subscribe((data:any) =>{
+      this.book.category = data;
+      console.log(this.book.category);
+    },
+    err=>{
+      console.log("error");
+    })
+  }
 
     /** doing by Tahiri=> Start i add the categories here etape2 */
     newBook(): void {

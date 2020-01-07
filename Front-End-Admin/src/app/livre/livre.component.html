@@ -123,7 +123,8 @@
           <div class="position-relative row form-group">
             <label for="exampleEmail" class="col-sm-3 col-form-label">Catégories :</label>
             <div class="col-sm-9  input-livre ">
-              <select class="select-disponible" [ngModel]="book.category" name="category"  required>
+              <select class="select-disponible"  (change)="addCategoryChange($event.target.value)" name="category"  required>
+                <option disabled selected >Selectionner une categorie</option>
                 <option  *ngFor="let cat of categories" [value]="cat.id_category">{{cat.title}}</option>
               </select>
             </div>
