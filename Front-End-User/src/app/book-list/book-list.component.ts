@@ -24,7 +24,21 @@ export class BookListComponent implements OnInit {
     this.http.get(this.host+"/api/categories").subscribe(
       (data:any) =>{
         this.Categories = data;
+        console.log(this.Categories[0])
         this.numberOfCategories=data.length
+        this.currentCategorie = this.Categories[0];
+        this.booklist.getLivres(this.currentPage,this.size,this.Categories[0].id_category)
+      .subscribe(
+        (data:any)=>{
+          console.log(data)
+          this.totalPages=data.totalPages;
+          this.pages=new Array<number>(this.totalPages);
+          this.livres = data;
+      }
+      ,
+      err=>{
+        console.log(err);
+      })
         // console.log(JSON.stringify(this.Categories))
       },
       err =>{
@@ -32,6 +46,9 @@ export class BookListComponent implements OnInit {
 
       }
     );
+    console.log(this.Categories)
+      
+    
   }
   
   onGetlivres(c){
