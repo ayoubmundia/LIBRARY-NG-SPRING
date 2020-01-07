@@ -54,7 +54,7 @@ export class CatalogueService {
   }
 
   deleteCategorie(id: number): Observable<any> {
-    return this.http.delete(this.host+"/api/categories/"+id);
+    return this.httpClient.delete(this.host+"/api/categories/"+id);
   }
   /** doing by Tahiri End of code */
 

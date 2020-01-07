@@ -5,11 +5,23 @@ import java.util.Date;
 import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
+import org.sid.dao.OperationRepository;
 import org.sid.dao.UserRepository;
+<<<<<<< HEAD:Back-End/src/main/java/org/sid/Library1Application.java
 import org.sid.entites.Book;
 import org.sid.entites.Category;
 import org.sid.entites.Demande;
 import org.sid.entites.User;
+=======
+import org.sid.entities.Admin;
+import org.sid.entities.Book;
+import org.sid.entities.Category;
+import org.sid.entities.Demande;
+import org.sid.entities.Emprunt;
+import org.sid.entities.Member;
+import org.sid.entities.Operation;
+import org.sid.entities.User;
+>>>>>>> 10c3bd9f203a51f8fc313e6d9630f9fd4e9eee43:Back-End/src/main/java/org/sid/MundiaBackEndApplication.java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +33,12 @@ public class Library1Application implements CommandLineRunner {
 	@Autowired
 	private BookRepository bookRepository;
 	
+<<<<<<< HEAD:Back-End/src/main/java/org/sid/Library1Application.java
+=======
+	@Autowired
+	private OperationRepository operationRepository;
+	
+>>>>>>> 10c3bd9f203a51f8fc313e6d9630f9fd4e9eee43:Back-End/src/main/java/org/sid/MundiaBackEndApplication.java
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
@@ -83,6 +101,12 @@ public class Library1Application implements CommandLineRunner {
 		B3.setQuantite(1000);
 		B3.setDate_publication(new Date("2000/10/10"));
 		
+		Operation O1= new Emprunt();
+		O1.setBook(B1);
+		//O1.setUser();
+		O1.setDate_debut_operation(new Date("2000/10/10"));
+		O1.setDate_fin_operation(new Date("2000/10/10"));
+		
 		Demande D1 = new Demande();
 		D1.setFirst_name("use1");
 		D1.setLast_name("last1");
@@ -119,7 +143,11 @@ public class Library1Application implements CommandLineRunner {
 		U2.setPassword("233");
 		U2.setBiblio("biibil");
 		
+<<<<<<< HEAD:Back-End/src/main/java/org/sid/Library1Application.java
 		User U3 = new User();
+=======
+		User U3 = new Admin();
+>>>>>>> 10c3bd9f203a51f8fc313e6d9630f9fd4e9eee43:Back-End/src/main/java/org/sid/MundiaBackEndApplication.java
 		U3.setFirst_name("faile");
 		U3.setLast_name("lastgoogle");
 		U3.setMail("mailu3@m.com");
@@ -142,6 +170,10 @@ public class Library1Application implements CommandLineRunner {
 		userRepository.save(U2);
 		userRepository.save(U3);
 		
+<<<<<<< HEAD:Back-End/src/main/java/org/sid/Library1Application.java
+=======
+		operationRepository.save(O1);
+>>>>>>> 10c3bd9f203a51f8fc313e6d9630f9fd4e9eee43:Back-End/src/main/java/org/sid/MundiaBackEndApplication.java
 	}
 
 }
