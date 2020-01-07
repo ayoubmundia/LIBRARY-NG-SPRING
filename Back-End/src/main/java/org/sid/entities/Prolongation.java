@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("PROL")
+@DiscriminatorValue("PRO")
 public class Prolongation extends Operation{
 	
 	public Prolongation() {

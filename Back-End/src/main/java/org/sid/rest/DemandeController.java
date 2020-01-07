@@ -2,7 +2,7 @@ package org.sid.rest;
 
 import java.util.List;
 
-import org.sid.entites.Demande;
+import org.sid.entities.Demande;
 import org.sid.metier.IServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

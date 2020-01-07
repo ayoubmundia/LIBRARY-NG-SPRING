@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_OPE",discriminatorType = DiscriminatorType.STRING,length = 3)
-
 public class Operation {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)

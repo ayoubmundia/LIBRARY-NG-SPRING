@@ -2,7 +2,7 @@ package org.sid.rest;
 
 import java.util.List;
 
-import org.sid.entites.User;
+import org.sid.entities.User;
 import org.sid.metier.IServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

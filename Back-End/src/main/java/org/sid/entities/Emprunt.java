@@ -15,7 +15,6 @@ public class Emprunt extends Operation {
 
 	public Emprunt(Date date_debut_operation, Date date_fin_operation, Book book, User user) {
 		super(date_debut_operation, date_fin_operation, book, user);
-		
 	}
 
 	

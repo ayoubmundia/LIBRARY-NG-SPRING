@@ -3,7 +3,7 @@ package org.sid.rest;
 import java.util.List;
 
 import org.sid.dao.BookRepository;
-import org.sid.entites.Book;
+import org.sid.entities.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

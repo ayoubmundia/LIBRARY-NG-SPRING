@@ -2,12 +2,12 @@ package org.sid.metier;
 
 import java.util.List;
 
-import org.sid.entites.Category;
-import org.sid.entites.Demande;
-import org.sid.entites.User;
+import org.sid.entities.Book;
+import org.sid.entities.Category;
+import org.sid.entities.Demande;
+import org.sid.entities.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.sid.entites.Book;
 
 public interface IServices {
 	//Category Serivces

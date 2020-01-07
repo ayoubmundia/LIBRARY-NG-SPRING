@@ -1,4 +1,4 @@
-package org.sid.entites;
+package org.sid.entities;
 
 import java.util.Date;
 

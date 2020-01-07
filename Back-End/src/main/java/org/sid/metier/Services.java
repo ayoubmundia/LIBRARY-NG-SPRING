@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.sid.dao.BookRepository;
 import org.sid.dao.CategoryRepository;
 import org.sid.dao.DemandeRepository;
-import org.sid.dao.EmpruntRepository;
+import org.sid.dao.OperationRepository;
 import org.sid.dao.UserRepository;
-import org.sid.entites.Book;
-import org.sid.entites.Category;
-import org.sid.entites.Demande;
-import org.sid.entites.User;
+import org.sid.entities.Book;
+import org.sid.entities.Category;
+import org.sid.entities.Demande;
+import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -34,7 +34,7 @@ public class Services implements IServices {
 	private DemandeRepository demandeRepository;
 	
 	@Autowired
-	private EmpruntRepository empruntRepository;
+	private OperationRepository operationRepository;
 
 	@Override
 	public List<Category> getAllCategories() {
