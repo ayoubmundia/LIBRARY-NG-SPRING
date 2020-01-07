@@ -156,7 +156,7 @@ public class Library1Application implements CommandLineRunner {
 //		userRepository.save(U2);
 		
 		operationRepository.save(O1);
-		operationRepository.save(O2);
+//		operationRepository.save(O2);
 	}
 
 }

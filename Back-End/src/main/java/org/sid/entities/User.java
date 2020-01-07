@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,14 +28,15 @@ public class User {
 	private String biblio;
 	
 	@OneToMany(mappedBy="user")
-	private Collection<Emprunt> emprunts;
+	@JsonProperty(access=Access.WRITE_ONLY)
+	private Collection<Operation> operations;
 
 	public User() {
 		super();
 	}
 
 	public User(String first_name, String last_name, String mail, Date date, String image, String password,
-			String biblio, Collection<Emprunt> emprunts) {
+			String biblio, Collection<Operation> ops) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -41,7 +45,7 @@ public class User {
 		this.image = image;
 		this.password = password;
 		this.biblio = biblio;
-		this.emprunts = emprunts;
+		this.operations = ops;
 	}
 
 
@@ -102,12 +106,12 @@ public class User {
 		this.biblio = biblio;
 	}
 
-	public Collection<Emprunt> getEmprunts() {
-		return emprunts;
+	public Collection<Operation> getEmprunts() {
+		return operations;
 	}
 
-	public void setEmprunts(Collection<Emprunt> emprunts) {
-		this.emprunts = emprunts;
+	public void setEmprunts(Collection<Operation> ops) {
+		this.operations = ops;
 	}
 
 	public String getPassword() {

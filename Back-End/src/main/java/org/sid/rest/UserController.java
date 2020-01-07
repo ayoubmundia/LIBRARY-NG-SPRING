@@ -26,7 +26,7 @@ public static final String BASE_URL = "api/users";
 	}
 	
 	@GetMapping()
-	List<User> getAllUsers(){
+	public List<User> getAllUsers(){
 		return biblioServices.getAllUsers();
 	}
 	

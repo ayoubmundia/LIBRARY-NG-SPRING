@@ -12,7 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Book {
@@ -37,16 +38,16 @@ public class Book {
 	@ManyToOne
 	private Category category;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy="book")
-	private Collection<Emprunt> emprunts;
+	@JsonProperty(access=Access.WRITE_ONLY)
+	private Collection<Operation> operations;
 
 	public Book() {
 		super();
 	}
 
 	public Book(String author, String title, String edition, Date date_publication, boolean isAvailable, String image,
-			int quantite, String description, Category category, Collection<Emprunt> emprunts) {
+			int quantite, String description, Category category, Collection<Operation> ops) {
 		super();
 		this.author = author;
 		this.title = title;
@@ -57,7 +58,7 @@ public class Book {
 		this.quantite = quantite;
 		this.description = description;
     	this.category = category;
-		this.emprunts = emprunts;
+		this.operations = ops;
 	}
 
 	public Long getId_book() {
@@ -140,12 +141,12 @@ public class Book {
 		this.category = category;
 	}
 
-	public Collection<Emprunt> getEmprunts() {
-		return emprunts;
+	public Collection<Operation> getOperations() {
+		return this.operations ;
 	}
 
-	public void setEmprunts(Collection<Emprunt> emprunts) {
-		this.emprunts = emprunts;
+	public void setOperations(Collection<Operation> operations) {
+		this.operations = operations;
 	}
 
 }

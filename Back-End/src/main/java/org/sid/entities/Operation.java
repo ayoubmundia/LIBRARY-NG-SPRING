@@ -10,12 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -34,11 +35,10 @@ public class Operation {
 	private Date date_fin_operation;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_BOOK")
 	private Book book;
 
 	@ManyToOne
-	@JoinColumn(name="ID_USER")
+	@JsonProperty(access=Access.WRITE_ONLY)
 	private User user;
 
 	public Operation() {
@@ -61,9 +61,6 @@ public class Operation {
 	public void setId_operation(Long id_operation) {
 		this.id_operation = id_operation;
 	}
-
-
-	
 
 	public Date getDate_debut_operation() {
 		return date_debut_operation;
@@ -100,8 +97,5 @@ public class Operation {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-	
 	
 }
