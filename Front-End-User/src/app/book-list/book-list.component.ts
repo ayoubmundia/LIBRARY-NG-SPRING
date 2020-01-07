@@ -11,7 +11,7 @@ export class BookListComponent implements OnInit {
   public host: string = "http://localhost:8088";
   public Categories:any;
   public livres:any;
-  public size:number=5;
+  public size:number=4;
   public currentPage:number=0;
   public totalPages:number;
   public pages:Array<number>;
@@ -36,7 +36,7 @@ export class BookListComponent implements OnInit {
   
   onGetlivres(c){
     this.currentCategorie=c;
-    this.booklist.getLivres(this.currentPage,this.size)
+    this.booklist.getLivres(this.currentPage,this.size,c.id_category)
     .subscribe(
       (data:any)=>{
         console.log(data)
