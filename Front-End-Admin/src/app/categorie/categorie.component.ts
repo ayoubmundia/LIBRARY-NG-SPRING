@@ -95,6 +95,7 @@ export class CategorieComponent implements OnInit {
     onSubmit() {
       this.submitted = true;
       this.save();
+      this.onGetCategories();
     }
 
     /** i cant't delete yet i cant just get the id of this category */

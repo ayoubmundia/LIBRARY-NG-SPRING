@@ -126,12 +126,14 @@ constructor(private catService:CatalogueService,  private router: Router) { }
     this.catService.createBook(this.book)
       .subscribe(data => console.log(data), error => console.log(error));
     this.book = new Book();
+    this.onGetlivres();
     
   }
 
   onSubmit() {
     this.submitted = true;
     this.save();
+    this.onGetlivres();
   }
 
   /** doing by Tahiri End of code */
