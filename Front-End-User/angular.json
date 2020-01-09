@@ -47,6 +47,7 @@
               "src/assets"
             ],
             "styles": [
+              "styles/bootstrap-3.3.7-dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -114,6 +115,7 @@
               "src/assets"
             ],
             "styles": [
+              "styles/bootstrap-3.3.7-dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
