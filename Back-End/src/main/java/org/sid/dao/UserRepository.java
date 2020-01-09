@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 public interface UserRepository extends JpaRepository<User, Long> {
 	@Query("select o from User o where o.mail=:x and o.password=:y")
-	public User  listloginUser(@Param("x")String mail, @Param("y") String password); 
+	public User listloginUser(@Param("x")String mail, @Param("y") String password); 
 }

@@ -36,7 +36,6 @@ export class CompteComponent implements OnInit {
         this.pages=new Array<number>(this.totalPages);
         this.allPage_nbr = this.demandes.totalElements;
         this.demandeSelected = null;
-        console.log("Yes You made it");
       }
       ,
       err=>{
@@ -54,18 +53,18 @@ export class CompteComponent implements OnInit {
     this.allPage = false;
     this.onGetDemande();
   }
+  anneeAfficher(){
+    console.log("YEAR");
+  }
   acceptDemande(d){
     this.demandeSelected = d ; 
-    console.log(this.demandeSelected);
   }
   rejectDemande(d){
     this.demandeSelected = d ; 
-    console.log(this.demandeSelected);
   }
   cofirmDelete(){
     this.catService.acceptUser(this.demandeSelected)
       .subscribe((data:any)=>{
-        console.log(data);
         this.onGetDemande();
       }
       ,err=>{
@@ -75,7 +74,6 @@ export class CompteComponent implements OnInit {
   confirmRejection(){
     this.catService.deleteDemande(this.demandeSelected.id_demande)
       .subscribe((data:any)=>{
-        console.log(data);
         this.onGetDemande();
       }
       ,err=>{
