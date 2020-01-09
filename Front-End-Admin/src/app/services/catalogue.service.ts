@@ -58,5 +58,9 @@ export class CatalogueService {
   }
   /** doing by Tahiri End of code */
 
+  // Demandes Part 
+  public getDemandes(page: number , size:number){
+    return this.httpClient.get(this.host+"/demandes?page="+page+"&size="+size+"&sort=date,desc");
+  }
 
 }

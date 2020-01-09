@@ -46,78 +46,103 @@ public class Library1Application implements CommandLineRunner {
 		System.out.println("Library Back End On Fire!!");
 		
 		Category C1 = new Category();
-		C1.setTitle("1984");
+		C1.setTitle("Self-help Book");
 		C1.setActive(true);
 		
 		Category C2 = new Category();
-		C2.setTitle("Revange");
+		C2.setTitle("Short Story");
 		C2.setActive(false);
 		
 		Category C3 = new Category();
-		C3.setTitle("Sapiens");
+		C3.setTitle("Classic");
 		C3.setActive(true);
 		
 		Book B1 = new Book();
-		B1.setAuthor("Ahmed");
-		B1.setTitle("livre-1");
-		B1.setDescription("Description-1");
+		B1.setAuthor("Malcolm Gladwell");
+		B1.setTitle("Outliers: The Story of Success");
+		B1.setDescription("In this stunning new book, Malcolm Gladwell takes us on an intellectual journey through the world of \"outliers\"--the best and the brightest, the most famous and the most successful. He asks the question: what makes high-achievers different?");
 		B1.setAvailable(true);
 		B1.setCategory(C1);
-		B1.setEdition("edition1");
-		B1.setImage("image1");
+		B1.setEdition("Published November 18th 2008 by Little, Brown and Company");
+		B1.setImage("bookImage1");
 		B1.setQuantite(100);
 		B1.setDate_publication(new Date("2012/11/21"));
 		
 		Book B2 = new Book();
-		B2.setAuthor("Alaa");
-		B2.setTitle("livre-2");
-		B2.setDescription("Description-2");
+		B2.setAuthor("Yuval Noah Harari");
+		B2.setTitle("Sapiens: A Brief History of Humankind");
+		B2.setDescription("100,000 years ago, at least six human species inhabited the earth. Today there is just one. Us. Homo sapiens.");
 		B2.setAvailable(false);
 		B2.setCategory(C2);
-		B2.setEdition("edition2");
-		B2.setImage("image2");
+		B2.setEdition("Published 2014 by Harvill Secker");
+		B2.setImage("bookImage2");
 		B2.setQuantite(10);
 		B2.setDate_publication(new Date("2011/11/11"));
 		
 		Book B3 = new Book();
-		B3.setAuthor("Akil");
-		B3.setTitle("livre-3");
-		B3.setDescription("Description-3");
+		B3.setAuthor("George Orwell");
+		B3.setTitle("1984");
+		B3.setDescription("Among the seminal texts of the 20th century, Nineteen Eighty-Four is a rare work that grows more haunting as its futuristic purgatory becomes more real. Published in 1949, the book offers political satirist George Orwell's nightmarish vision of a totalitarian, bureaucratic world and one poor stiff's attempt to find individuality.");
 		B3.setAvailable(true);
 		B3.setCategory(C3);
-		B3.setEdition("edition3");
-		B3.setImage("image3");
+		B3.setEdition("Published September 3rd 2013 by Houghton Mifflin Harcourt");
+		B3.setImage("bookImage3");
 		B3.setQuantite(1000);
-		B3.setDate_publication(new Date("2000/10/10"));
+		B3.setDate_publication(new Date("2000/07/10"));
+		
+		Book B4 = new Book();
+		B4.setAuthor("Bryan Cranston");
+		B4.setTitle("A Life in Parts");
+		B4.setDescription("A poignant, intimate, funny, inspiring memoir—both a coming-of-age story and a meditation on creativity, devotion, and craft—from Bryan Cranston, beloved and acclaimed star of one of history’s most successful TV shows, Breaking Bad.");
+		B4.setAvailable(true);
+		B4.setCategory(C2);
+		B4.setEdition("Published October 11th 2016 by Scribner");
+		B4.setImage("bookImage4");
+		B4.setQuantite(19);
+		B4.setDate_publication(new Date("1998/10/10"));
 		
 		Demande D1 = new Demande();
-		D1.setFirst_name("use1");
-		D1.setLast_name("last1");
-		D1.setMail("maild1@m.com");
-		D1.setDate(new Date("1998/11/11"));
-		D1.setPassword("password2");
+		D1.setFirst_name("Charif");
+		D1.setLast_name("Gaber");
+		D1.setMail("AllahMyGod@gmail.com");
+		D1.setDate(new Date("2020/01/01"));
+		D1.setPassword("HoHoHo");
 		
 		Demande D2 = new Demande();
-		D2.setFirst_name("use2");
-		D2.setLast_name("last2");
-		D2.setMail("maild2@m.com");
-		D2.setDate(new Date("1998/11/11"));
-		D2.setPassword("password");
+		D2.setFirst_name("Hamouda");
+		D2.setLast_name("Hamou");
+		D2.setMail("hamouda@outlook.com");
+		D2.setDate(new Date("2020/01/11"));
+		D2.setPassword("hahahaha");
 		
 		
 		Demande D3 = new Demande();
-		D3.setFirst_name("use3");
-		D3.setLast_name("last3");
-		D3.setMail("maild3@m.com");
-		D3.setDate(new Date("1998/11/11"));
-		D3.setPassword("passworsssd");
+		D3.setFirst_name("Asmar");
+		D3.setLast_name("El sassi");
+		D3.setMail("el_sassi@mundiapolis.ma");
+		D3.setDate(new Date("2020/01/12"));
+		D3.setPassword("lalala");
+		
+		Demande D4 = new Demande();
+		D4.setFirst_name("Hicham");
+		D4.setLast_name("Noustik");
+		D4.setMail("h.noustik@outlook.com");
+		D4.setDate(new Date("2020/01/13"));
+		D4.setPassword("Tamalhada");
 		
 		User U1 = new User();
-		U1.setFirst_name("google");
-		U1.setLast_name("lastgoogle");
-		U1.setMail("mailu1@m.com");
-		U1.setPassword("1233");
-		U1.setBiblio("sssbiibil");
+		U1.setFirst_name("Achraf");
+		U1.setLast_name("El kadissi");
+		U1.setMail("a.el_kadissi@mundiapolis.ma");
+		U1.setPassword("123456");
+		U1.setBiblio("Student At Mundiapolis University");
+		
+		User U2 = new User();
+		U2.setFirst_name("Ahlam");
+		U2.setLast_name("Moutawakil");
+		U2.setMail("a.moutawakil@mundiapolis.ma");
+		U2.setPassword("123456");
+		U2.setBiblio("Student At Mundiapolis University");
 
 		
 		Emprunt O1= new Emprunt();
@@ -147,13 +172,15 @@ public class Library1Application implements CommandLineRunner {
 		bookRepository.save(B1);
 		bookRepository.save(B2);
 		bookRepository.save(B3);
+		bookRepository.save(B4);
 		
 		demandeRepository.save(D1);
 		demandeRepository.save(D2);
 		demandeRepository.save(D3);
+		demandeRepository.save(D4);
 		
 		userRepository.save(U1);
-//		userRepository.save(U2);
+		userRepository.save(U2);
 		
 		operationRepository.save(O1);
 //		operationRepository.save(O2);

@@ -41,3 +41,10 @@
      border-radius: 8px;
      width: 100%;
 }
+.css-btn
+    {
+              display: inline;
+              /* width:50px !important;
+              height:35px; */
+              margin:5px !important;
+    }
