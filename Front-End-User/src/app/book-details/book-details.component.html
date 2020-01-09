@@ -34,19 +34,21 @@
         <h4 class="section-title text-center">The Same Category </h4>
             <span class="underline center"></span>
     </div>
-    <div class="row" *ngIf="livres">
-        <div *ngFor="let l of livres?.content">
-            <div class="col-md-4 border-shadow" *ngIf="l.id_book != livre.id_book">
-                <div class="card text-center" >
-                    <img src="../../assets/images/Coming-Soon.png" class="card-img-top" alt="book_img">
-                    <div class="card-body" style="padding-bottom: 3%;">
-                      <h5 class="card-title">{{l?.title}}</h5>
-                      <p class="card-text">Author:  {{l?.author}}.</p>
-                      <a [routerLink]="['/bookdetails', l.id_book]" class="btn btn-primary">Book Details</a>
+    <div class="row justify-content-around" *ngIf="livres">
+        <div class="col-md-12 " style="margin-left: 4%; margin-right: auto;">
+                <div *ngFor="let l of livres?.content">
+                    <div class="col-md-3 classWithPad border-shadow"  *ngIf="l.id_book != livre.id_book">
+                        <div class="card  text-center" >
+                            <img src="../../assets/images/Coming-Soon.png" class="card-img-top" alt="book_img">
+                            <div class="card-body" style="padding-bottom: 3%;">
+                              <h5 class="card-title">{{l?.title}}</h5>
+                              <p class="card-text">Author:  {{l?.author}}.</p>
+                              <a [routerLink]="['/bookdetails', l.id_book]" class="btn btn-primary">Book Details</a>
+                            </div>
+                          </div>
                     </div>
-                  </div>
-            </div>
+                </div>
+            
         </div>
     </div>
-    
 </div>
