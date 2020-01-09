@@ -28,7 +28,6 @@ public static final String BASE_URL = "api/livres";
 	@RequestMapping(value = "/listPageable", method = RequestMethod.GET)
 	Page<Book> booksPageable(Pageable pageable) {
 		return bookRepository.findAll(pageable);
-
 	}
 	
 	/*Consulter tout les livres en convertissant les résultats en format json*/

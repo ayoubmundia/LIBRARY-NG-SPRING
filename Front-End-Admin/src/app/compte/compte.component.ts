@@ -20,6 +20,8 @@ export class CompteComponent implements OnInit {
   public totalPages:number;
   public pages:Array<number>;
   public allPage: boolean = true;
+  public allPage_nbr: number;
+  public demandeSelected : any;
 
   constructor(private catService:CatalogueService,  private router: Router) { }
 
@@ -27,11 +29,13 @@ export class CompteComponent implements OnInit {
     this.onGetDemande();
   }
   onGetDemande(){
-    this.catService.getDemandes(this.currentPage,this.size)
+    this.catService.getDemandesPage(this.currentPage,this.size)
       .subscribe((data:any)=>{
         this.demandes = data;
-        this.totalPages=data.page.totalPages;
+        this.totalPages=data.totalPages;
         this.pages=new Array<number>(this.totalPages);
+        this.allPage_nbr = this.demandes.totalElements;
+        this.demandeSelected = null;
         console.log("Yes You made it");
       }
       ,
@@ -44,11 +48,39 @@ export class CompteComponent implements OnInit {
     this.onGetDemande();
   }
   touAfficher(){
-    this.size = this.demandes.page.totalElements;
+    this.size = this.demandes.totalElements;
     this.currentPage = 0;
     this.totalPages = 0;
     this.allPage = false;
     this.onGetDemande();
+  }
+  acceptDemande(d){
+    this.demandeSelected = d ; 
+    console.log(this.demandeSelected);
+  }
+  rejectDemande(d){
+    this.demandeSelected = d ; 
+    console.log(this.demandeSelected);
+  }
+  cofirmDelete(){
+    this.catService.acceptUser(this.demandeSelected)
+      .subscribe((data:any)=>{
+        console.log(data);
+        this.onGetDemande();
+      }
+      ,err=>{
+        console.log(err);
+      })
+  }
+  confirmRejection(){
+    this.catService.deleteDemande(this.demandeSelected.id_demande)
+      .subscribe((data:any)=>{
+        console.log(data);
+        this.onGetDemande();
+      }
+      ,err=>{
+        console.log(err);
+      })
   }
 
 }

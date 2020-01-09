@@ -9,7 +9,7 @@
                     </div>
                     <div>Liste des demandes d'inscription
                         <div class="page-title-subheading">
-                            <button class="btn btn-link" (click)="touAfficher()">Tout Afficher<span class="badge badge-pill badge-primary">6</span></button>
+                            <button class="btn btn-link" (click)="touAfficher()">Tout Afficher<span class="badge badge-pill badge-primary">{{ allPage_nbr }}</span></button>
                             <button class="btn btn-link">Cette Annee<span class="badge badge-pill badge-success">6</span></button>
                             <button class="btn btn-link">Ce Mois-ci<span class="badge badge-pill badge-danger">6</span></button>
                             <button class="btn btn-link" (click)="touAfficher()">Ajourd'hui<span class="badge badge-pill badge-warning">6</span></button>
@@ -61,18 +61,26 @@
                             <th class="text-center">Refuser</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr *ngFor="let d of demandes._embedded.demandes; let i = index">
+                        <tbody *ngIf="demandes">
+                        <tr *ngFor="let d of demandes.content; let i = index">
                             <th scope="row">{{1+i}}</th>
                             <td>{{ d.first_name}}</td>
                             <td>{{ d.last_name }}</td>
                             <td>{{ d.mail }}</td>
                             <td>{{ d.date }}</td>
                             <td class="text-center">
-                                <button class="mr-2 btn-icon btn-icon-only btn btn-outline-success"><i class="pe-7s-check btn-icon-wrapper"> </i></button>
+                                <button class="mr-2 btn-icon btn-icon-only btn btn-outline-success" 
+                                        (click)="acceptDemande(d)" 
+                                        data-toggle="modal" data-target="#acceptModal">
+                                        <i class="pe-7s-check btn-icon-wrapper" ></i>
+                                </button>
                             </td>
                             <td class="text-center">
-                                <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                                <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger" 
+                                        (click)="rejectDemande(d)" 
+                                        data-toggle="modal" data-target="#rejectModal">
+                                        <i class="pe-7s-trash btn-icon-wrapper"> </i>
+                                </button>
                             </td>
                         </tr>
                         </tbody>
@@ -88,8 +96,46 @@
             </div>
         </div>
     </div>
-
     <div class="app-wrapper-footer">
     </div>
 </div>
-  
+
+<div class="modal fade" id="acceptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" *ngIf="demandeSelected">
+            <div class="modal-header">
+                <h5 class="modal-title" id="acceptModalLabel">Confirmation la demande</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0">Voulez-vous Accepter la demande de {{ demandeSelected.first_name  }} {{ demandeSelected.last_name }} .</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Annuller</button>
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="cofirmDelete()">Accepter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" *ngIf="demandeSelected">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rejectModalLabel">Confirmation la suppression</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0">Voulez-vous vraiment supprimer la demande de  {{ demandeSelected.first_name  }} {{ demandeSelected.last_name }} .</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="cofirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>

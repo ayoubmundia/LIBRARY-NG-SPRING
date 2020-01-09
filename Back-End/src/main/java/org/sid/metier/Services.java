@@ -1,6 +1,5 @@
 package org.sid.metier;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -133,6 +132,17 @@ public class Services implements IServices {
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
+	
+	@Override
+	public  User addUser (Demande demande) {
+		User user = new User();
+		user.setFirst_name(demande.getFirst_name());
+		user.setLast_name(demande.getLast_name());
+		user.setMail(demande.getMail());
+		user.setPassword(demande.getPassword());
+		demandeRepository.delete(demande);
+		return userRepository.save(user);
+	}
 
 	//Demande Services Implimentation
 	
@@ -144,6 +154,21 @@ public class Services implements IServices {
 	@Override
 	public List<Demande> getAllDemandes() {
 		return demandeRepository.findAll();
+	}
+
+	@Override
+	public Demande getDemandeById(Long id) {
+		return demandeRepository.findById(id).get();
+	}
+
+	@Override
+	public Page getAllDemandesPage(Pageable pageable) {
+		return demandeRepository.findAll(pageable);
+	}
+
+	@Override
+	public void deleteDemandeById(Long id) {
+		demandeRepository.deleteById(id);
 	}
 
 }

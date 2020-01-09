@@ -22,7 +22,11 @@ public interface IServices {
 	//User Services
 	User findUserByMailAndPassword(String mail, String password);
 	List<User> getAllUsers();
+	User addUser (Demande demande);
 	//Demande Services
 	Demande addDemande(Demande demande);
+	Demande getDemandeById(Long id);
 	List<Demande> getAllDemandes();
+	Page getAllDemandesPage(Pageable pageable );
+	void deleteDemandeById(Long id);
 }

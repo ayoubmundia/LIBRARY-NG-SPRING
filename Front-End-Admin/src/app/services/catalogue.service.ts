@@ -62,5 +62,17 @@ export class CatalogueService {
   public getDemandes(page: number , size:number){
     return this.httpClient.get(this.host+"/demandes?page="+page+"&size="+size+"&sort=date,desc");
   }
+  
+  public getDemandesPage(page: number , size:number){
+    return this.httpClient.get(this.host+"/api/demandes/listPageable?page="+page+"&size="+size+"&sort=date,desc");
+  }
+
+  public acceptUser(demande: any){
+    return this.httpClient.post(this.host+"/api/users", demande);
+  }
+
+  public deleteDemande(id: number): Observable<any> {
+    return this.httpClient.delete(this.host+"/api/demandes/"+id);
+  }
 
 }
