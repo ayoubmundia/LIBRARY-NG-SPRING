@@ -1,30 +1,24 @@
-<div class="app-main__outer  offset-sm-2 col-lg-10 app-main">
+<div class="app-main__outer" >
   <div class="app-main__inner">
     <div class="row">
       <div class="card-body">
         <div class="col-md-12">
           <div id="accordion" class="accordion-wrapper mb-3">
-            <div class="card card-btn">
-              <button class="btn btn-primary btn-lg btn-ajouter-categorie" data-toggle="modal"
-                       data-target="#categorieModal" (click)="pupup_add=true">
-                Ajouter Une Categorie
-              </button>
+            <div class="card">
+              <div id="headingOne" class="card-header filter">
+                <div class="card card-btn">
+                  <a class="btn btn-primary btn-lg btn-ajouter-categorie" data-toggle="modal" data-target="#categorieModal" (click)="pupup_add=true">
+                    Ajouter Une Categorie
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-12 ">
-          <div class="input-group offset-sm-6 rechercher">
-            <input type="text" class="form-control" placeholder="Search...">
-            <div class="input-group-append">
-              <button class="btn btn-secondary" type="button">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
-
           <table class="mb-0 table table-hover table-striped" >
             <thead>
-            <tr class="th-table-livre">
+            <tr>
               <th class="text-center">Num</th>
               <th class="text-center">Categorie</th>
               <th class="text-center">Disbonibilité</th>
@@ -67,11 +61,8 @@
   </div>
 </div>
 
-
-
-
 <!-- doing by Tahiri Start i add the categories here  etape3 -->
-<div class="modal fade modal" id="categorieModal" tabindex="-1" role="dialog" aria-labelledby="categorieModal" aria-hidden="true">
+<div class="modal fade modal " id="categorieModal" tabindex="0" role="dialog" aria-labelledby="categorieModal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document"  >
     <div class="modal-content" >
       <form (ngSubmit)="onSubmit()">
@@ -108,7 +99,7 @@
 </div>
 <!-- doing by Tahiri End of code -->
 
-<div class="modal fade modal" id="categorieModalupdate" tabindex="0" role="dialog" aria-labelledby="categorieModalUpdate" style="" aria-hidden="true">
+<div class="modal fade modal" id="categorieModalupdate" tabindex="0" role="dialog" aria-labelledby="categorieModalUpdate"  aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content" *ngIf="categoryUpdated">
       <div class="modal-header">

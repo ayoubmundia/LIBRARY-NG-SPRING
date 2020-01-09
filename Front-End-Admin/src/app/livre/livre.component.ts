@@ -5,7 +5,12 @@ import { Book } from '../book';
 @Component({
 selector: 'app-livre',
 templateUrl: './livre.component.html',
-styleUrls: ['./livre.component.css']
+styleUrls: ['./livre.component.css'],
+styles: [`
+  :host {
+    width : 100%;
+  }
+  `]
 })
 export class LivreComponent implements OnInit {
 

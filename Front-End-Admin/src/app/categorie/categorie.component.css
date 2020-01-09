@@ -1,91 +1,43 @@
-	.filter{
-		height: 60px !important;
-		margin-top: -40px;
-	}
+.btn-ajouter-categorie{
+    color:white !important;
+}
+.filter{
+    height: 60px !important;
+}
+.pagination{
+    margin-left: 220px !important;
+    margin-top: -8px;
+}
+.th-table-livre{
+    height: 50px;
+}
+.img-circle{
+    height:100px;width:100px;
+}
+.table-striped{
+    background-color: white;
+}
+.input-livre{
+    width: 100%;
 
-	.pagination{
-		margin-left: 220px !important;
-		margin-top: -13px;
-	}
-	.th-table-livre{
-		height: 50px;
-		font-size: 20px;
-	}
-	.td-table{
-		font-size: 16px;
-	}
-	.table-striped{
-		background-color: white;
-		margin-top: 10px;
-	}
-	.input-livre{
-		width: 100%;
-
-	}
-	.input-livre-img{
-		margin-left: 14px !important;
-		width:71%;
-	}
-
-	.modal-body{
-		margin-top: -4px;
-	}
-	.modal-header{
-		margin-top: -20px;
-	}
-	.modal-footer{
-		margin-top: -30px !important;
-	}
-	.modal-x{
-		font-size: 30px;
-	}
-	.select-disponible{
-		height: 33px;
-		width: 570px;
-	 	border-radius: 8px;
-	 	width: 100%;
-	}
-	.icons{
-		font-size: 26px !important;
-	}
-	.big-links-menu{
-		font-size: 15px
-	}
-	.input-group{
-		width: 50%;
-	}
-	.btn-ajouter-categorie{
-		color:white !important;
-		width: 15%;
-		margin-top: 13px;
-		margin-left: 10px;
-	}
-
-	.rechercher{
-		margin-top: 10px;
-	}
-	.main{
-	      margin-top : -700px;
-	      }
-  th{color:orange;}
-
-.btn-danger{
-  width : 15%; color:white !important;
+}
+.input-livre-img{
+    margin-left: 14px !important;
+    width:71%;
 }
 
-	.card{
-		height: 60px;
-	}
-  .app-main__outer{
-    margin-top: -770px !important;
-    margin-left: 235px;
-  }
-
-  .css-btn
-    {
-              display: inline;
-              width:50px !important;
-              height:35px;
-              margin:5px;
-    }
-
+.modal-body{
+    margin-top: -4px;
+}
+.modal-header{
+    margin-top: -30px;
+}
+.modal-footer{
+    margin-top: -27px;
+}
+.select-disponible{
+    height: 33px;
+    width: 570px; 
+     border-radius: 8px;
+     width: 100%;
+}

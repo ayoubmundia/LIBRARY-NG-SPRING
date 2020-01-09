@@ -6,7 +6,12 @@ import { Categorie } from '../categorie';
 @Component({
   selector: 'app-categorie',
   templateUrl: './categorie.component.html',
-  styleUrls: ['./categorie.component.css']
+  styleUrls: ['./categorie.component.css'],
+  styles: [`
+  :host {
+    width : 100%;
+  }
+  `]
 })
 export class CategorieComponent implements OnInit {
 
