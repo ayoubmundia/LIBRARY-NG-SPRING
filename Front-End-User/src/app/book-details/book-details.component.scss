@@ -1,0 +1,102 @@
+
+.row {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+.single-book-box .post-detail{
+    margin-left: -10px !important;
+}
+
+.single-book-box .post-thumbnail {
+    display: inline-block;
+    margin: -34px 0 -48px 20px;
+}
+.single-book-box .post-detail {
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    width: 567px;
+    padding: 49px 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.sidebar .widget-sub-title1 {
+    border-bottom: 1px solid #f4f4f4;
+    color: #2f2f2f;
+    font-size: 16px;
+    line-height: 16px;
+    padding-bottom: 10px;
+    margin: 0 0 30px;
+}
+[data-accordion] [data-control] {
+    cursor: pointer;
+    position: relative;
+}
+.select-styled {
+    border: 3px solid #f4f4f4;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 15px 10px;
+}
+.filter-options .select-styled {
+    padding: 13px 10px 13px;
+}
+.post-thumbnail{
+    display: inline-block;
+    margin: 0 4% 0 0 !important;
+}
+.active-cat{
+    color:#ff7236 !important;
+}
+.post-center-content{
+    width: 100%;
+    height: 100%;
+}
+.table-tabs .table thead:first-child tr:first-child th {
+    border-top: 1px solid #282828;
+}
+.woocommerce .shop_table {
+    border: 1px solid #e5e5e5;
+    border-spacing: 0;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    margin: 0 0 20px;
+    width: 100%;
+}
+.woocommerce .shop_table thead tr {
+    background-color: #282828;
+    color: #fff;
+}
+.woocommerce .shop_table tr {
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 14px;
+}
+.table tr, table th, table td {
+    border: none;
+}
+.small-desc {
+    text-align: center !important;
+    width: 28ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+.border-shadow{
+    -webkit-box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+    display: inline-block;
+
+}
